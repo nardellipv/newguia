@@ -30,7 +30,7 @@ class RecipeController extends Controller
         Recipe::where('id', $id)
             ->increment('likes',1);
 
-        toastr()->info('Muchas gracias por tu voto', '', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+        toast('Muchas gracias por tu voto!','success');
         return back();
     }
 }

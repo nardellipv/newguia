@@ -110,12 +110,12 @@
                                 <div class="form-group">
                                     <label class="text-light-black fw-700">Mensaje</label><sup class="fs-16">*</sup>
                                     <textarea type="text" name="messageText" class="form-control form-control-submit"
-                                    >{{ old('messageText') }} </textarea>
+                                    onpaste="return false;" ondrop="return false;" autocomplete="off">{{ old('messageText') }} </textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            {{--  {!! htmlFormSnippet() !!}  --}}
+                             {!! htmlFormSnippet() !!} 
                             <div class="form-group"></div>
                             <button type="submit" class="btn-second btn-submit btn-block">Enviar</button>
                         </div>

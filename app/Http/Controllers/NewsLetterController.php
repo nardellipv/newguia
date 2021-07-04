@@ -13,7 +13,7 @@ class NewsLetterController extends Controller
             'email' => $request['email'],
         ]);
 
-        toastr()->info('Muchas gracias por darte de alta', '', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+        toast('Muchas gracias por darte de alta!','success');
         return back();
     }
 }

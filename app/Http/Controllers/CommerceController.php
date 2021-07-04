@@ -7,7 +7,6 @@ use App\Characteristic_commerce;
 use App\Commerce;
 use App\Payment_commerce;
 use App\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use App\Comment;
 
@@ -69,7 +68,7 @@ class CommerceController extends Controller
             ->first();
 
         if (Cookie::get('voto' . $commerce->slug) == $slug) {
-            toastr()->info('Ya votaste anteriormente a este comercio', '', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+            toast('Ya votaste anteriormente a este comercio!','error');
             return back();
         }
 
@@ -78,7 +77,7 @@ class CommerceController extends Controller
 
         Cookie::queue('voto' . $commerce->slug, $commerce->slug, '2628000');
 
-        toastr()->success('Muchas gracias por tu voto', '', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+        toast('Muchas gracias por tu voto!','success');
         return back();
     }
 }

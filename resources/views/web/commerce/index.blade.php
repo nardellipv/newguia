@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page-banner p-relative smoothscroll" id="menu">
-    <img src="{{ asset('styleWeb/assets/img/banner.jpg') }}" class="img-fluid full-width" alt="banner">
+    <img src="{{ asset('styleWeb/assets/img/banner.jpg') }}" class="img-fluid full-width" alt="banner">    
 </div>
 <!-- restaurent top -->
 <!-- restaurent details -->
@@ -336,23 +336,23 @@
                                         <div class="form-group">
                                             <label class="text-light-black fw-600">Nombre</label>
                                             <input type="text" name="name" class="form-control form-control-submit"
-                                                placeholder="Nombre">
+                                                placeholder="Nombre" value="{{ old('name') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="text-light-black fw-600">Email</label>
                                             <input type="email" name="email" class="form-control form-control-submit"
-                                                placeholder="Email">
+                                                placeholder="Email" value="{{ old('email') }}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="text-light-black fw-600">Mensaje</label>
                                             <textarea class="form-control form-control-submit" name="messageText"
-                                                rows="6" placeholder="Mensaje"></textarea>
+                                                rows="6" placeholder="Mensaje">{{ old('messageText') }}</textarea>
                                         </div>
-                                        {{--  {!! htmlFormSnippet() !!}  --}}
+                                         {!! htmlFormSnippet() !!} 
                                         <button type="submit" class="btn-second btn-submit full-width">Enviar
                                             Mensaje</button>
                                     </div>

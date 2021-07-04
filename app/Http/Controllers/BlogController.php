@@ -32,7 +32,7 @@ class BlogController extends Controller
         Blog::where('id', $id)
             ->increment('like', 1);
 
-        toastr()->info('Muchas gracias por tu voto', '', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+        toast('Muchas gracias por tu voto!','success');
         return back();
     }
 }

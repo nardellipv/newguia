@@ -12,7 +12,7 @@
     <!-- Fav and touch icons -->
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    
+
     <!-- Bootstrap -->
     <link href="{{ asset('styleWeb/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Fontawesome -->
@@ -24,9 +24,9 @@
     <!-- Range Slider -->
     <link href="{{ asset('styleWeb/assets/css/ion.rangeSlider.min.css') }}" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="{{ asset('styleWeb/assets/css/magnific-popup.css') }}" rel="stylesheet">
+    {{--  <link href="{{ asset('styleWeb/assets/css/magnific-popup.css') }}" rel="stylesheet"> --}}
     <!-- Nice Select -->
-    <link href="{{ asset('styleWeb/assets/css/nice-select.css') }}" rel="stylesheet">
+    {{--  <link href="{{ asset('styleWeb/assets/css/nice-select.css') }}" rel="stylesheet"> --}}
     <!-- Custom Stylesheet -->
     <link href="{{ asset('styleWeb/assets/css/style.css') }}" rel="stylesheet">
     <!-- Custom Responsive -->
@@ -35,32 +35,26 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     <!-- place -->
 
-    {{--tostr--}}
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     @yield('style')
-    @toastr_css
 
+    {!! htmlScriptTagJsApi() !!}
 </head>
 
 <body>
     <!-- Navigation -->
-   @include('web.parts._header')
+    @include('web.parts._header')
     <div class="main-sec"></div>
     <!-- Navigation -->
+    @include('sweetalert::alert')
+
 
     @yield('content')
 
-    
+
     <!-- footer -->
     @include('web.parts._footer')
     <!-- footer -->
-    
-    @jquery
-    @toastr_js
-    @toastr_render
-    
+
     <!-- Place all Scripts Here -->
     <!-- jQuery -->
     <script src="{{ asset('styleWeb/assets/js/jquery.min.js') }}"></script>
@@ -82,4 +76,5 @@
     <script src="{{ asset('styleWeb/assets/js/munchbox.js') }}"></script>
     <!-- /Place all Scripts Here -->
 </body>
+
 </html>

@@ -27,7 +27,7 @@ class EmailController extends Controller
 
         Mail::to($commerce->user->email)->send(new MessageClientToCommerce($commerce));
 
-        toastr()->success('Se envio correctamente tu mensaje, muchas gracias', 'Mensaje Enviado!', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+        toast('Se envio correctamente tu mensaje, muchas gracias!','success');
         return back();
     }
 
@@ -35,7 +35,7 @@ class EmailController extends Controller
     {
         Mail::to('info@guiaceliaca.com.ar')->send(new MailContactToSite($request));
 
-        toastr()->success('Se envio correctamente tu mensaje, muchas gracias, en breve te contestaremos.', 'Mensaje Enviado!', ["positionClass" => "toast-top-right", "progressBar" => "true"]);
+        toast('Se envio correctamente tu mensaje, muchas gracias, en breve te contestaremos!','success');
         return back();
     }
 }
