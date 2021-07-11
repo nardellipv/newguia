@@ -3142,7 +3142,6 @@ footer .footer-links .appimg {
 }
 .thankmsg-sec .msg-wrapper .contact-details {
     display: flex;
-    justify-content: center;
     margin-bottom: 40px;
     flex-wrap: wrap;
 }

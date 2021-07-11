@@ -42,7 +42,7 @@
                                                 @else
                                                 {{ $commerce->province->name }}
                                                 @endif
-                                                - {{ Str::limit($commerce->address,50) }}
+                                                - {{ $commerce->region->name }} - {{ Str::limit($commerce->address,50) }}
                                             </p>
                                         </div>
                                     </div>

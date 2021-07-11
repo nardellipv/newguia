@@ -21,14 +21,15 @@ class CreateCommercesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('phoneWsp')->nullable();
             $table->mediumText('about')->nullable();
-            $table->integer('votes_positive')->default(0)->nullable();
+            $table->integer('votes_positive')->default(0);
             $table->integer('visit')->default(0);
             $table->string('web')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('logo')->nullable();
-            $table->enum('type',['FREE','BASIC','CLASIC','PREMIUM'])->default('FREE');
-            $table->string('slug', 150)->nullable()->unique();
+            $table->enum('type', ['FREE', 'BASIC', 'CLASIC', 'PREMIUM'])->default('FREE');
+            $table->string('slug', 150)->unique();
+            $table->enum('status', ['ACTIVE', 'DESACTIVE'])->default('DESACTIVE');
 
             //relaciones
 
@@ -38,6 +39,7 @@ class CreateCommercesTable extends Migration
                 ->onUpdate('cascade');
 
             $table->foreignId('province_id')
+                ->nullable()
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

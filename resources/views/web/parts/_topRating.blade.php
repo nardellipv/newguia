@@ -71,7 +71,7 @@
 											href="{{ route('name.commerce', $lastCommerce->slug) }}">{{ $lastCommerce->name }}</a>
 									</h6>
 								</div>
-								<p class="text-light-white">{{ $lastCommerce->province->name }}</p>
+								<p class="text-light-white">{{ $lastCommerce->region->name }} - {{ $lastCommerce->province->name }}</p>
 								<div class="product-details">
 									<div class="rating">
 										<span class="text-light-white text-right">

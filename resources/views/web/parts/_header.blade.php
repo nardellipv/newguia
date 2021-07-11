@@ -61,61 +61,56 @@
                         <div class="user-details p-relative">
                             <a href="#" class="text-light-white fw-500">
                                 <img src="{{ asset('styleWeb/assets/img/user-1.png') }}" class="rounded-circle"
-                                    alt="userimg"> <span>Hola, {{ Auth::user()->name }}</span>
+                                    alt="userimg"> <span>Hola, {{ userConnect()->name }}</span>
                             </a>
                             <div class="user-dropdown">
                                 <ul>
                                     <li>
-                                        <a href="order-details.html">
-                                            <div class="icon"><i class="flaticon-rewind"></i>
-                                            </div> <span class="details">Past Orders</span>
+                                        <a href="{{ route('profile') }}">
+                                            <div class="icon"><i class="fas fa-user"></i>
+                                            </div> <span class="details">Información General</span>
                                         </a>
                                     </li>
+                                    @if (userCommerceActive())
                                     <li>
                                         <a href="order-details.html">
-                                            <div class="icon"><i class="flaticon-takeaway"></i>
-                                            </div> <span class="details">Upcoming Orders</span>
+                                            <div class="icon"><i class="fas fa-chart-line"></i>
+                                            </div> <span class="details">Perfil Comercial</span>
+                                        </a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon"><i class="fas fa-envelope"></i>
+                                            </div> <span class="details">Mensajes</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="icon"><i class="flaticon-breadbox"></i>
-                                            </div> <span class="details">Saved</span>
+                                            <div class="icon"><i class="fas fa-shopping-cart"></i>
+                                            </div> <span class="details">Productos</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <div class="icon"><i class="flaticon-gift"></i>
-                                            </div> <span class="details">Gift cards</span>
+                                            <div class="icon"><i class="fas fa-comment"></i>
+                                            </div> <span class="details">Comentarios</span>
                                         </a>
                                     </li>
+                                    @endif
                                     <li>
-                                        <a href="#">
-                                            <div class="icon"><i class="flaticon-refer"></i>
-                                            </div> <span class="details">Refer a friend</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="icon"><i class="flaticon-diamond"></i>
-                                            </div> <span class="details">Perks</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="icon"><i class="flaticon-user"></i>
-                                            </div> <span class="details">Account</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="icon"><i class="flaticon-board-games-with-roles"></i>
-                                            </div> <span class="details">Help</span>
+                                        <a href="{{ route('recipe.create') }}">
+                                            <div class="icon"><i class="fas fa-hamburger"></i>
+                                            </div> <span class="details">Recetas</span>
                                         </a>
                                     </li>
                                 </ul>
-                                <div class="user-footer"> <span class="text-light-black">Not Jhon?</span> <a
-                                        href="#">Sign Out</a>
+                                <div class="user-footer"> <span class="text-light-black">No eres
+                                        {{ userConnect()->name }}?</span> <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Salir</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +125,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 mobile-search">
+                    @if (!Auth::check())
                     <div class="sorting-addressbox">
                         <a href="{{ route('login') }}"
                             class="add-pro bg-gradient-orange btn-second btn-submit full-width "
@@ -138,6 +134,7 @@
                             class="add-pro bg-gradient-red btn-second btn-submit full-width "
                             type="button">Registrarse</a>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@
                 <div class="heading padding-tb-10">
                     <h3 class="text-light-black title fw-700 no-margin">{{ $commerce->name }}</h3>
                     <p class="text-light-black sub-title no-margin">{{ $commerce->address }} -
-                        {{ $commerce->province->name }}
+                        {{ $commerce->region->name }} - {{ $commerce->province->name }}
                     </p>
                 </div>
                 @if (!$commerce->logo)
@@ -292,7 +292,7 @@
                     <li> <i class="fas fa-map-marker-alt"></i>
                         <span>
                             <a href="#" class="text-light-white">
-                                {{ $commerce->address }} - {{ $commerce->province->name }}
+                                {{ $commerce->address }} - {{ $commerce->region->name }} - {{ $commerce->province->name }}
                             </a>
                         </span>
                     </li>

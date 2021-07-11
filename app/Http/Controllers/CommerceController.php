@@ -15,6 +15,7 @@ class CommerceController extends Controller
     public function index($slug)
     {
         $commerce = Commerce::where('slug', $slug)
+            ->where('status', 'ACTIVE')
             ->first();
 
         Commerce::where('id', $commerce->id)
@@ -68,7 +69,7 @@ class CommerceController extends Controller
             ->first();
 
         if (Cookie::get('voto' . $commerce->slug) == $slug) {
-            toast('Ya votaste anteriormente a este comercio!','error');
+            toast('Ya votaste anteriormente a este comercio!', 'error');
             return back();
         }
 
@@ -77,7 +78,7 @@ class CommerceController extends Controller
 
         Cookie::queue('voto' . $commerce->slug, $commerce->slug, '2628000');
 
-        toast('Muchas gracias por tu voto!','success');
+        toast('Muchas gracias por tu voto!', 'success');
         return back();
     }
 }

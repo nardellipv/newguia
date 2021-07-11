@@ -11,9 +11,11 @@ class HomeController extends Controller
     public function index()
     {
         $ratingVote = Commerce::orderBy('votes_positive', 'desc')
+            ->where('status', 'ACTIVE')
             ->first();
 
         $ratingVisit = Commerce::orderBy('visit', 'DESC')
+            ->where('status', 'ACTIVE')
             ->first();
 
         $lastNews = Blog::orderBy('created_at', 'DESC')
@@ -27,6 +29,7 @@ class HomeController extends Controller
             ->get();
 
         $commercesLastRegister = Commerce::with(['user', 'province'])
+            ->where('status', 'ACTIVE')
             ->orderBy('created_at', 'DESC')
             ->take(6)
             ->get();

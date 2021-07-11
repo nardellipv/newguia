@@ -14,7 +14,11 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <!-- Bootstrap -->
+    
     <link href="{{ asset('styleWeb/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    @yield('style')
+
     <!-- Fontawesome -->
     <link href="{{ asset('styleWeb/assets/css/font-awesome.css') }}" rel="stylesheet">
     <!-- Flaticons -->
@@ -23,10 +27,6 @@
     <link href="{{ asset('styleWeb/assets/css/swiper.min.css') }}" rel="stylesheet">
     <!-- Range Slider -->
     <link href="{{ asset('styleWeb/assets/css/ion.rangeSlider.min.css') }}" rel="stylesheet">
-    <!-- magnific popup -->
-    {{--  <link href="{{ asset('styleWeb/assets/css/magnific-popup.css') }}" rel="stylesheet"> --}}
-    <!-- Nice Select -->
-    {{--  <link href="{{ asset('styleWeb/assets/css/nice-select.css') }}" rel="stylesheet"> --}}
     <!-- Custom Stylesheet -->
     <link href="{{ asset('styleWeb/assets/css/style.css') }}" rel="stylesheet">
     <!-- Custom Responsive -->
@@ -35,7 +35,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
     <!-- place -->
 
-    @yield('style')
+    
 
     {!! htmlScriptTagJsApi() !!}
 </head>
@@ -56,6 +56,7 @@
     <!-- footer -->
 
     <!-- Place all Scripts Here -->
+    
     <!-- jQuery -->
     <script src="{{ asset('styleWeb/assets/js/jquery.min.js') }}"></script>
     <!-- Popper -->
@@ -75,6 +76,7 @@
     <!-- Munch Box Js -->
     <script src="{{ asset('styleWeb/assets/js/munchbox.js') }}"></script>
     <!-- /Place all Scripts Here -->
+    @yield('script')
 </body>
 
 </html>
