@@ -19,18 +19,25 @@
                                 <div class="step-content">
                                     <div class="step-tab-panel active" id="steppanel1">
                                         <div class="general-sec">
-                                            <form method="post" action="{{ route('commerce.addCommerceStep1') }}"
+                                            <form method="post"
+                                                action="{{ route('commerce.editCommerceStep1', $commerce->slug) }}"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <h5 class="text-light-black fw-700">Crear nuevo Comercio</h5>
+                                                        <h5 class="text-light-black fw-700">Editar Comercio</h5>
                                                     </div>
 
                                                     <div class="col-md-12">
                                                         <div class="form-group">
+                                                            @if (!$commerce->logo)
                                                             <img src="{{ asset('styleWeb/assets/images/img-logo-grande.png') }}"
                                                                 class="img-fluid " style="width: 40%">
+                                                            @else
+                                                            <img id="profile-display"
+                                                                src="{{ asset('users/images/' . $commerce->user_id . '/comercio/260x260-'. $commerce->logo) }}"
+                                                                class="img-fluid " style="width: 40%">
+                                                            @endif
 
                                                             <div class="form-group">
                                                                 <input type="file" class="btn-second btn-submit"
@@ -45,7 +52,7 @@
                                                             </label>
                                                             <input type="text" name="name"
                                                                 class="form-control form-control-submit"
-                                                                value="{{ old('name') }}" required
+                                                                value="{{ old('name', $commerce->name) }}" readonly
                                                                 placeholder="Nombre del Comercio">
                                                         </div>
                                                     </div>
@@ -53,7 +60,7 @@
                                                         <div class="form-group">
                                                             <label class="text-light-black fw-700">Teléfono</label>
                                                             <input type="number" name="phone" placeholder="Teléfono"
-                                                                value="{{ old('phone') }}" required
+                                                                value="{{ old('phone', $commerce->phone) }}" required
                                                                 class="form-control form-control-submit">
                                                         </div>
                                                     </div>
@@ -62,7 +69,7 @@
                                                             <label class="text-light-black fw-700">Whatsapp</label>
                                                             <input type="number" name="phoneWsp"
                                                                 placeholder="Whatsapp (sin 0 ni 15)"
-                                                                value="{{ old('phoneWsp') }}"
+                                                                value="{{ old('phoneWsp', $commerce->phoneWsp) }}"
                                                                 class="form-control form-control-submit">
                                                         </div>
                                                     </div>
@@ -73,7 +80,7 @@
                                                                 Comercio</label>
                                                             <textarea type="text" name="about" required
                                                                 placeholder="Escribir sobre tu comercio"
-                                                                class="form-control form-control-submit">{{ old('about') }}</textarea>
+                                                                class="form-control form-control-submit">{{ old('about', $commerce->about) }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -100,9 +107,32 @@
                                                     <div class="col-6">
                                                         @foreach($payments as $payment)
                                                         <label class="custom-checkbox text-light-black">
-                                                            <input type="checkbox" name="payment_id[]" id="payment-{{ $payment->id }}"
-                                                            value="{{ $payment->id }}"> <span
+                                                            <input type="checkbox" name="payment_id[]"
+                                                                id="payment-{{ $payment->id }}"
+                                                                value="{{ $payment->id }}"> <span
                                                                 class="checkmark"></span>{{ $payment->name }}</label>
+                                                        @endforeach
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        @foreach($characteristicsCommerce as $characteristicSelected)
+                                                        <img src="{{ asset($characteristicSelected->characteristic->photo) }}"
+                                                            style="padding: 10px;">
+                                                        <a
+                                                            href="{{ route('commerce.deleteCharacteristic', $characteristicSelected) }}"><img
+                                                                src="{{ asset('styleWeb/assets/icons/cross.png') }}"
+                                                                style="margin-bottom: 20px;margin-left: -15px;"></a>
+                                                        @endforeach
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        @foreach($paymentsCommerce as $paymentSelected)
+                                                        <img src="{{ asset($paymentSelected->payment->photo) }}"
+                                                            style="padding: 10px;">
+                                                        <a
+                                                            href="{{ route('commerce.deletePayment', $paymentSelected) }}"><img
+                                                                src="{{ asset('styleWeb/assets/icons/cross.png') }}"
+                                                                style="margin-bottom: 20px;margin-left: -15px;"></a>
                                                         @endforeach
                                                     </div>
                                                 </div>
@@ -119,22 +149,26 @@
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label class="text-light-black fw-700">Web</label>
-                                                            <input type="text" class="form-control form-control-submit" name="web"
+                                                            <input type="text" class="form-control form-control-submit"
+                                                                name="web" value="{{ old('web', $commerce->web) }}"
                                                                 placeholder="Sitio Web">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="text-light-black fw-700">Facebook</label>
-                                                            <input type="text" class="form-control form-control-submit" name="facebook"
+                                                            <input type="text" class="form-control form-control-submit"
+                                                                name="facebook"
+                                                                value="{{ old('facebook', $commerce->facebook) }}"
                                                                 placeholder="Usuario Facebook">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="text-light-black fw-700">Instagram</label>
-                                                            <input type="text" class="form-control form-control-submit" name="instagram"
-                                                                placeholder="Usuario Instagram">
+                                                            <input type="text" class="form-control form-control-submit"
+                                                                value="{{ old('instagram', $commerce->instagram) }}"
+                                                                name="instagram" placeholder="Usuario Instagram">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -144,7 +178,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn-first green-btn text-custom-white full-width fw-500">Continuar</button>
+                                                    <button type="submit"
+                                                        class="btn-first green-btn text-custom-white full-width fw-500">Continuar</button>
                                                 </div>
                                             </form>
                                         </div>

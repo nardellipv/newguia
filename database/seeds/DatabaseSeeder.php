@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RegionSeeder::class);
         
         //Comentar
-        // $this->call(UserSeeder::class);
-        // $this->call(CommerceSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(CommerceSeeder::class);
         //------------
         
         $this->call(CharacteristicSeeder::class);
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         //Comentar
         // $this->call(PaymentCommerceSeeder::class);
         // $this->call(BlogSeeder::class);        
-        // $this->call(ProductSeeder::class);
+        $this->call(ProductSeeder::class);
         // $this->call(MessageSeeder::class);
         // $this->call(CommentSeeder::class);
         // $this->call(PictureSeeder::class);

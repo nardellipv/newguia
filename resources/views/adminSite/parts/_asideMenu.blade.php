@@ -8,12 +8,12 @@
                                 href="{{ route('profile') }}" class="add-res-tab">Información General</a>
                 </li>
                 @if (userCommerceActive())
-                <li class="{{ Route::currentRouteName() == 'profileCommercial' ? 'active' : '' }}"> <a
-                                href="{{ route('profile') }}" class="add-res-tab">Perfil
+                <li class="{{ Route::currentRouteName() == 'commerce.update' ? 'active' : '' }}"> <a
+                                href="{{ route('commerce.update', $commerce->slug) }}" class="add-res-tab">Perfil
                                 Comercial</a>
                 </li>
-                <li class="{{ Route::currentRouteName() == 'products' ? 'active' : '' }}"> <a
-                                href="{{ route('profile') }}" class="add-res-tab">Productos</a>
+                <li class="{{ Route::currentRouteName() == 'product.list' ? 'active' : '' }}"> <a
+                                href="{{ route('product.list') }}" class="add-res-tab">Productos</a>
                 </li>
                 <li class="{{ Route::currentRouteName() == 'menssages' ? 'active' : '' }}"> <a
                                 href="{{ route('profile') }}" class="add-res-tab">Mensajes</a>

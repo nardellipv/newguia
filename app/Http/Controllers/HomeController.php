@@ -28,7 +28,7 @@ class HomeController extends Controller
             ->inRandomOrder()
             ->get();
 
-        $commercesLastRegister = Commerce::with(['user', 'province'])
+        $commercesLastRegister = Commerce::with(['user', 'province','region'])
             ->where('status', 'ACTIVE')
             ->orderBy('created_at', 'DESC')
             ->take(6)

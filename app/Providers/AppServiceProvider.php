@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Blog;
 use App\Commerce;
 use App\Province;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -62,5 +63,19 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('mostRead', $mostRead);
         });
+
+        view::composer(
+            [
+                'adminSite.parts._asideMenu',
+                'adminSite.index',
+            ],
+            function ($view) {
+                $commerce = Commerce::where('user_id', userConnect()->id)
+                    ->first();
+
+                $view->with('commerce', $commerce);
+            }
+        );
+
     }
 }

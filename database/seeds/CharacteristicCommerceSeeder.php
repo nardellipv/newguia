@@ -11,6 +11,6 @@ class CharacteristicCommerceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(\App\Characteristic_commerce::class, 20)->create();
     }
 }

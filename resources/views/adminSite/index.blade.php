@@ -56,10 +56,10 @@
                                                                 <span>Cuenta tipo: <b>Comercio</b></span>
                                                             </li>
                                                             <li> <i class="fas fa-users text-light-black"></i>
-                                                                <span>Cantidad de visitas: <b></b></span>
+                                                                <span>Cantidad de visitas: <b>{{ $commerce->visit }}</b></span>
                                                             </li>
                                                             <li> <i class="fas fa-thumbs-up text-light-black"></i>
-                                                                <span>Cantidad de votos: <b></b></span>
+                                                                <span>Cantidad de votos: <b>{{ $commerce->votes_positive }}</b></span>
                                                             </li>
                                                             @endif
                                                         </ul>

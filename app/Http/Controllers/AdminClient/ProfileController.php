@@ -102,7 +102,7 @@ class ProfileController extends Controller
             $commerce->save();
         }
 
-        toast('Tu perfil se modificó correctamente','success');
+        toast('Tu perfil se modificó correctamente', 'success');
         return back();
     }
 }

@@ -71,9 +71,9 @@
                                             </div> <span class="details">Información General</span>
                                         </a>
                                     </li>
-                                    @if (userCommerceActive())
+                                    {{--  @if (userCommerceActive())
                                     <li>
-                                        <a href="order-details.html">
+                                        <a href="{{ route('commerce.update', $commerce->slug) }}">
                                             <div class="icon"><i class="fas fa-chart-line"></i>
                                             </div> <span class="details">Perfil Comercial</span>
                                         </a>
@@ -96,7 +96,7 @@
                                             </div> <span class="details">Comentarios</span>
                                         </a>
                                     </li>
-                                    @endif
+                                    @endif  --}}
                                     <li>
                                         <a href="{{ route('recipe.create') }}">
                                             <div class="icon"><i class="fas fa-hamburger"></i>

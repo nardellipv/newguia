@@ -23,6 +23,11 @@ class CreateProductsTable extends Migration
 
             //relaciones
 
+            $table->foreignId('category_id')
+                ->constrained()
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->foreignId('commerce_id')
                 ->constrained()
                 ->onDelete('cascade')
