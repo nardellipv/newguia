@@ -60,8 +60,18 @@
                         @if (Auth::check())
                         <div class="user-details p-relative">
                             <a href="#" class="text-light-white fw-500">
-                                <img src="{{ asset('styleWeb/assets/img/user-1.png') }}" class="rounded-circle"
-                                    alt="userimg"> <span>Hola, {{ userConnect()->name }}</span>
+                                <img src="{{ asset('styleWeb/assets/images/user.png') }}" class="rounded-circle"
+                                    alt="userimg"> 
+{{--  
+                                    @if (!$user->picture)
+                                    <img src="{{ asset('styleWeb/assets/images/img-logo.png') }}" class="rounded-circle"
+                                    alt="userimg" style="width: 10%">
+                                    @else
+                                    <img src="{{ asset('users/images/' . $user->id . '/perfil/512x512-' . $user->picture) }}"
+                                        class="rounded-circle" alt="usuario Guia Celiaca" style="width: 5%">
+                                    @endif  --}}
+
+                                    <span>Hola, {{ userConnect()->name }}</span>
                             </a>
                             <div class="user-dropdown">
                                 <ul>

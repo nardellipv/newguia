@@ -10,7 +10,7 @@ class ListingController extends Controller
 {
     public function index()
     {
-        $commercesListed = Commerce::with(['user', 'province'])
+        $commercesListed = Commerce::with(['user', 'province','region'])
             ->orderBy('updated_at', 'DESC')
             ->paginate(10);
 
