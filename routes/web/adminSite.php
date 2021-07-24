@@ -33,4 +33,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil/editar-producto/{id}', 'AdminClient\ProductController@editProduct')->name('product.edit');
     Route::post('/perfil/actualizar-producto/{id}', 'AdminClient\ProductController@updateProduct')->name('product.update');
     Route::get('/perfil/eliminar-producto/{id}', 'AdminClient\ProductController@deleteProduct')->name('product.delete');
+
+    Route::get('/perfil/mensajes', 'AdminClient\MessageController@list')->name('message.list');
 });

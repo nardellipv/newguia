@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Blog;
 use App\Commerce;
+use App\Message;
+use App\Product;
 use App\Province;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -77,5 +79,30 @@ class AppServiceProvider extends ServiceProvider
             }
         );
 
+        //        contador mensajes sin leer
+        view::composer(
+            [
+                'adminSite.parts._asideMenu',
+                'adminSite.index',
+            ],
+            function ($view) {
+                if (userConnect()->type == 'OWNER') {
+                    $commerce = Commerce::where('user_id', auth()->user()->id)
+                        ->first();
+
+                    $countMessage = Message::where('commerce_id', $commerce->id)
+                        ->where('read', 'NO')
+                        ->count();
+
+                    $countProducts = Product::where('commerce_id', $commerce->id)
+                        ->count();
+
+                    $view->with([
+                        'countMessage' => $countMessage,
+                        'countProducts' => $countProducts,
+                    ]);
+                }
+            }
+        );
     }
 }

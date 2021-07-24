@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         
         //Comentar
         // $this->call(PaymentCommerceSeeder::class);
-        // $this->call(BlogSeeder::class);        
+        $this->call(BlogSeeder::class);        
         $this->call(ProductSeeder::class);
         // $this->call(MessageSeeder::class);
         // $this->call(CommentSeeder::class);

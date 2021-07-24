@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Commerce;
 use App\Http\Requests\EmailContactSiteRequest;
 use App\Http\Requests\MessageClienteToCommerceRequest;
+use App\Http\Requests\RespondCommerceToClientMessage;
 use App\Mail\MailContactToSite;
 use Illuminate\Http\Request;
 use App\Mail\MessageClientToCommerce;
+use App\Mail\RespondCommerceToClient;
 use App\Message;
 use Illuminate\Support\Facades\Mail;
 
@@ -36,6 +38,21 @@ class EmailController extends Controller
         Mail::to('info@guiaceliaca.com.ar')->send(new MailContactToSite($request));
 
         toast('Se envio correctamente tu mensaje, muchas gracias, en breve te contestaremos!','success');
+        return back();
+    }
+
+    public function respondToClient(RespondCommerceToClientMessage $messageCommerce)
+    {
+        $message = Message::where('id', $messageCommerce->id)
+            ->first();
+
+        $message->read = 'YES';
+        $message->save();
+
+
+        Mail::to($messageCommerce->clientMail)->send(new RespondCommerceToClient($messageCommerce));
+
+        toast('Se envio correctamente tu mensaje, muchas gracias!','success');
         return back();
     }
 }

@@ -13,7 +13,7 @@ class RespondCommerceToClientMessage extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class RespondCommerceToClientMessage extends FormRequest
     public function rules()
     {
         return [
-            //
+            'description' => 'required|min:10',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'description.required' => 'El mensaje es requerida',
+            'description.min' => 'El mensaje debe tener más de 10 caracteres',
         ];
     }
 }

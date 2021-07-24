@@ -11,14 +11,11 @@ class RespondCommerceToClient extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $messageCommerce;
+
+    public function __construct($messageCommerce)
     {
-        //
+        $this->messageCommerce = $messageCommerce;
     }
 
     /**
@@ -28,6 +25,8 @@ class RespondCommerceToClient extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.MailRespondCommerceToClient')
+            ->from('no-responder@guiaceliaca.com.ar','Guía Celíaca')
+            ->subject('Respuesta local Guía Celíaca');
     }
 }

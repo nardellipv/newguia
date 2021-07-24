@@ -34,6 +34,7 @@ Route::get('/recetas/like/{id}', 'RecipeController@recipeLike')->name('recipe.li
 //emails
 Route::post('/mailcustomers/{id}', 'EmailController@MessageClientToCommerce')->name('MessageClientToCommerce');
 Route::post('/contacto/sendMail', 'EmailController@MailContactToSite')->name('MailContactToSite');
+Route::post('/respuesta/respondToClient', 'EmailController@respondToClient')->name('respondToClient');
 
 
 //job Admin

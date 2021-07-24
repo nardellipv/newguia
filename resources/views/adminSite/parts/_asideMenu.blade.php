@@ -13,14 +13,14 @@
                                 Comercial</a>
                 </li>
                 <li class="{{ Route::currentRouteName() == 'product.list' ? 'active' : '' }}"> <a
-                                href="{{ route('product.list') }}" class="add-res-tab">Productos</a>
+                                href="{{ route('product.list') }}" class="add-res-tab">Productos ({{ $countProducts }})</a>
                 </li>
-                <li class="{{ Route::currentRouteName() == 'menssages' ? 'active' : '' }}"> <a
-                                href="{{ route('profile') }}" class="add-res-tab">Mensajes</a>
+                <li class="{{ Route::currentRouteName() == 'message.list' ? 'active' : '' }}"> <a
+                                href="{{ route('message.list') }}" class="add-res-tab">Mensajes ({{ $countMessage }})</a>
                 </li>
-                <li class="{{ Route::currentRouteName() == 'comments' ? 'active' : '' }}"> <a
+                {{--  <li class="{{ Route::currentRouteName() == 'comments' ? 'active' : '' }}"> <a
                                 href="{{ route('profile') }}" class="add-res-tab">Comentarios</a>
-                </li>
+                </li>  --}}
                 @endif
                 <li class="{{ Route::currentRouteName() == 'recipe.create' ? 'active' : '' }}"> <a
                                 href="{{ route('recipe.create') }}" class="add-res-tab">Subir Recetas</a>

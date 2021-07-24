@@ -447,7 +447,7 @@
 </div> --}}
 <!-- map gallery -->
 <!-- restaurent reviews -->
-<section class="section-padding restaurent-review smoothscroll" id="review">
+{{--  <section class="section-padding restaurent-review smoothscroll" id="review">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -489,6 +489,7 @@
         </div>
     </div>
 
+    @if (!Auth::check())
     <div class="col-md-12">
         <div class="section-2 user-page main-padding">
             <div class="login-sec">
@@ -531,7 +532,10 @@
             </div>
         </div>
     </div>
-</section>
+    @else
+
+    @endif
+</section>  --}}
 <!-- restaurent reviews -->
 <!-- offer near -->
 {{-- <section class="fresh-deals section-padding">
