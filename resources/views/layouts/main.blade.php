@@ -35,7 +35,11 @@
     <!-- place -->
 
     {!! htmlScriptTagJsApi() !!}
-    @include('external.onesignal') 
+    {{-- @include('external.analytics') --}}
+    {{-- @include('external.hotjar')  --}}
+    {{-- @include('external.adsenses')  --}}
+    {{-- @include('external.pixel')  --}}
+    {{-- @include('external.onesignal')  --}}
 </head>
 
 <body>

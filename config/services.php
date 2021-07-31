@@ -35,5 +35,4 @@ return [
             'key'   => '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'
         ]
     ],
-
 ];

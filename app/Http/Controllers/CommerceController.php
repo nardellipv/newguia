@@ -100,7 +100,7 @@ class CommerceController extends Controller
 
         Cookie::queue('voto' . $commerce->slug, $commerce->slug, '2628000');
 
-        toast('Muchas gracias por tu voto, ' . userConnect()->name . '!', 'success');
+        toast('Muchas gracias por tu voto!', 'success');
         return back();
     }
 }

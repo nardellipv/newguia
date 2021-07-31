@@ -18,14 +18,16 @@
                                         <div class="card-body">
                                             @foreach ($listingProvince as $province)
                                             <label class="custom-checkbox">
-                                                <a href="{{ route('listing.searchProvince', $province->province->slug) }}">
+                                                <a
+                                                    href="{{ route('listing.searchProvince', $province->province->slug) }}">
                                                     @if ($province->province->id == 2)
                                                     CABA
                                                     @else
                                                     {{ $province->province->name }}
                                                     @endif
                                                 </a>
-                                                {{--  <span class="text-light-white">({{ $province->commerce_count }})</span>  --}}
+                                                {{--  <span class="text-light-white">({{ $province->commerce_count }})</span>
+                                                --}}
                                             </label>
                                             @endforeach
                                         </div>
@@ -79,7 +81,15 @@
         </div>
         @empty
         <div class="swiper-wrapper">
-            publicidad google
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543412924958320"
+                crossorigin="anonymous"></script>
+            <!-- ListCommerce -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7543412924958320"
+                data-ad-slot="3664575668" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         @endforelse
         <!-- Add Arrows -->

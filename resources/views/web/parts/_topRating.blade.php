@@ -43,7 +43,7 @@
 			<div class="col-lg-3 col-md-4">
 				<div class="large-product-box p-relative pb-0">
 					<img alt="image" class="img-fluid full-width"
-						src="{{ asset('styleWeb/assets/images/Publicidad.png') }}">
+						src="{{ asset('styleWeb/assets/images/publicidad.png') }}">
 					<div class="category-type overlay padding-15">
 						<a
 							class="btn-first white-btn text-light-black fw-600 full-width" href="{{ route('register') }}">Registrate</a>

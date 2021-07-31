@@ -39,7 +39,15 @@
         </div>
         @empty
         <div class="swiper-wrapper">
-            publicidad google
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543412924958320"
+                crossorigin="anonymous"></script>
+            <!-- Post -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7543412924958320"
+                data-ad-slot="6687977216" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         @endforelse
         <!-- Add Arrows -->
