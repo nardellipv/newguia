@@ -13,6 +13,7 @@ return [
     |
     */
 
+    // 'driver' => env('MAIL_DRIVER', 'sendinblue.v3'),
     'default' => env('MAIL_MAILER', 'smtp'),
 
     /*

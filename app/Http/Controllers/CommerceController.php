@@ -9,6 +9,8 @@ use App\Payment_commerce;
 use App\Product;
 use Illuminate\Support\Facades\Cookie;
 use App\Comment;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 class CommerceController extends Controller
 {
@@ -17,6 +19,26 @@ class CommerceController extends Controller
         $commerce = Commerce::where('slug', $slug)
             ->where('status', 'ACTIVE')
             ->first();
+
+
+        SEOMeta::setTitle('⚠ ' . $commerce->name . ' local para celiacos');
+        SEOMeta::setDescription('💪 Local de comida sin TACC ' . $commerce->name . ' ingresa y conoce más sobre este local');
+        SEOMeta::addKeyword([
+            $commerce->name, 'celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer',
+            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento'
+        ]);
+
+        OpenGraph::setDescription($commerce->about);
+        OpenGraph::setTitle('Comercios celíacos Argentinos');
+        OpenGraph::setUrl('https://guiaceliaca.com.ar');
+        if ($commerce->logo) {
+            OpenGraph::addImage(['url' => 'https://guiaceliaca.com.ar/users/images/' . $commerce->user->id . '/comercio/358x250-' . $commerce->logo, 'size' => 300]);
+            OpenGraph::addImage(['url' => 'https://guiaceliaca.com.ar/styleWeb/assets/images/logo.png', 'size' => 300]);
+        }else{
+            OpenGraph::addImage(['url' => 'https://guiaceliaca.com.ar/styleWeb/assets/images/logo.png', 'size' => 300]);
+        }
+        OpenGraph::addProperty('type', 'articles');
+
 
         Commerce::where('id', $commerce->id)
             ->increment('visit', 1);
@@ -78,7 +100,7 @@ class CommerceController extends Controller
 
         Cookie::queue('voto' . $commerce->slug, $commerce->slug, '2628000');
 
-        toast('Muchas gracias por tu voto, ' . userConnect()->name .'!', 'success');
+        toast('Muchas gracias por tu voto, ' . userConnect()->name . '!', 'success');
         return back();
     }
 }

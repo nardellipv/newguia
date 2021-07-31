@@ -43,10 +43,10 @@
 			<div class="col-lg-3 col-md-4">
 				<div class="large-product-box p-relative pb-0">
 					<img alt="image" class="img-fluid full-width"
-						src="{{ asset('styleWeb/assets/img/restaurants/287x702/ad-1.jpg') }}">
+						src="{{ asset('styleWeb/assets/images/Publicidad.png') }}">
 					<div class="category-type overlay padding-15">
-						<button class="category-btn">Most popular near you</button> <a
-							class="btn-first white-btn text-light-black fw-600 full-width" href="#">See all</a>
+						<a
+							class="btn-first white-btn text-light-black fw-600 full-width" href="{{ route('register') }}">Registrate</a>
 					</div>
 				</div>
 			</div>
@@ -72,12 +72,12 @@
 								</div>
 								<p class="text-light-white">
 									@if($lastCommerce->region)
-										{{ $lastCommerce->region->name }} -
+									{{ $lastCommerce->region->name }} -
 									@endif
 									@if($lastCommerce->province->id == '2')
-										CABA
+									CABA
 									@else
-										{{ $lastCommerce->province->name }}
+									{{ $lastCommerce->province->name }}
 									@endif
 								</p>
 								<div class="product-details">

@@ -5,10 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="keywords" content="#">
-    <meta name="description" content="#">
-    <title>Guía Celíaca | @yield('title','Comercios celíacos Argentinos') {{ date('Y') }}</title>
 
+    {!! SEO::generate() !!}
+    
     <!-- Fav and touch icons -->
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
@@ -36,6 +35,7 @@
     <!-- place -->
 
     {!! htmlScriptTagJsApi() !!}
+    @include('external.onesignal') 
 </head>
 
 <body>
