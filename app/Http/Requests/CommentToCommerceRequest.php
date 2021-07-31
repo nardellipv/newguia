@@ -13,7 +13,7 @@ class CommentToCommerceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class CommentToCommerceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'text-message' => 'required | min:5',
+            'g-recaptcha-response' => 'recaptcha',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'text-message.required' => 'El mensaje es requerido',
+            'text-message.min' => 'El mensaje debe ser más largo',
+            'g-recaptcha-response.recaptcha' => 'El captcha es necesario.'
         ];
     }
 }

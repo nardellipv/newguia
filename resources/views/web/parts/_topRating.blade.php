@@ -46,8 +46,7 @@
 						src="{{ asset('styleWeb/assets/img/restaurants/287x702/ad-1.jpg') }}">
 					<div class="category-type overlay padding-15">
 						<button class="category-btn">Most popular near you</button> <a
-							class="btn-first white-btn text-light-black fw-600 full-width"
-							href="#">See all</a>
+							class="btn-first white-btn text-light-black fw-600 full-width" href="#">See all</a>
 					</div>
 				</div>
 			</div>
@@ -71,7 +70,16 @@
 											href="{{ route('name.commerce', $lastCommerce->slug) }}">{{ $lastCommerce->name }}</a>
 									</h6>
 								</div>
-								<p class="text-light-white">{{ $lastCommerce->region->name }} - {{ $lastCommerce->province->name }}</p>
+								<p class="text-light-white">
+									@if($lastCommerce->region)
+										{{ $lastCommerce->region->name }} -
+									@endif
+									@if($lastCommerce->province->id == '2')
+										CABA
+									@else
+										{{ $lastCommerce->province->name }}
+									@endif
+								</p>
 								<div class="product-details">
 									<div class="rating">
 										<span class="text-light-white text-right">

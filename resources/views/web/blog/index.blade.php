@@ -35,6 +35,11 @@
                         </div>
                         @endforeach
                     </div>
+                    <div class="custom-pagination">
+                        <nav aria-label="Page navigation example">
+                            {{ $posts->render() }}
+                        </nav>
+                    </div>
                 </div>
             </div>
             @include('web.blog._asideRight')

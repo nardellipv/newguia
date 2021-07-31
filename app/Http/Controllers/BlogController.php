@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -21,6 +23,13 @@ class BlogController extends Controller
         $post = Blog::where('slug', $slug)
             ->first();
 
+        if (Carbon::parse($post->created_at)->diffInDays(now()) <= '30 day') {
+            if (!Auth::check()) {
+                toast('Necesitas estar registrado para leer esta noticia!', 'success');
+                return view('auth.register');
+            }
+        }
+
         Blog::where('id', $post->id)
             ->increment('view', 1);
 
@@ -32,7 +41,7 @@ class BlogController extends Controller
         Blog::where('id', $id)
             ->increment('like', 1);
 
-        toast('Muchas gracias por tu voto!', 'success');
+        toast('Muchas gracias por tu voto, ' . userConnect()->name .'!', 'success');
         return back();
     }
 }

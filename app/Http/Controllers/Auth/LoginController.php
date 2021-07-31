@@ -26,7 +26,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/perfil';
+    // protected $redirectTo = '/perfil';
+
+    public function showLoginForm()
+    {
+      if (!session()->has('url.intended')) {
+          session(['url.intended' => url()->previous()]);
+          return redirect('/perfil');
+      }
+      return view('auth.login');
+    }
 
     /**
      * Create a new controller instance.
@@ -36,5 +45,9 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        
+        if (url()->previous() != '*/login') {
+            $this->redirectTo = url()->previous();
+          }
     }
 }

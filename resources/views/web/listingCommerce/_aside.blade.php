@@ -25,7 +25,7 @@
                                                     {{ $province->province->name }}
                                                     @endif
                                                 </a>
-                                                <span class="text-light-white">({{ $province->commerce_count }})</span>
+                                                {{--  <span class="text-light-white">({{ $province->commerce_count }})</span>  --}}
                                             </label>
                                             @endforeach
                                         </div>

@@ -30,6 +30,8 @@ Route::get('/recetas', 'RecipeController@listRecipes')->name('list.recipes');
 Route::get('/recetas/{slug}', 'RecipeController@recipes')->name('recipes');
 Route::get('/recetas/like/{id}', 'RecipeController@recipeLike')->name('recipe.like');
 
+Route::post('/post/comentario/{slug}', 'CommentController@addComment')->name('add.commentCommerce');
+
 
 //emails
 Route::post('/mailcustomers/{id}', 'EmailController@MessageClientToCommerce')->name('MessageClientToCommerce');

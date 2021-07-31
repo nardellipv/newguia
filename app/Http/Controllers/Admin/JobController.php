@@ -63,8 +63,9 @@ class JobController extends Controller
     {
         // eliminamos el archivo
         /* $siteMap = 'https://guiaceliaca.com.ar/sitemap.xml';
-        // dd($siteMap);
+        dd($siteMap);
         unlink($siteMap); */
+
         $sitemap = App::make("sitemap");
 
         $sitemap->add(URL::to('/'), \Carbon\Carbon::now(), '1.0', 'daily');
@@ -94,6 +95,7 @@ class JobController extends Controller
         }
 
         $sitemap->store('xml', 'sitemap', base_path('../public_html'));
+        // $sitemap->store('xml', 'mysitemap');
         return back();
     }
 }

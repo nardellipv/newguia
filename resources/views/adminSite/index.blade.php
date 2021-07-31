@@ -45,21 +45,23 @@
                                                             </li>
                                                             <li> <i class="fas fa-envelope text-light-black"></i>
                                                                 <span>{{ $user->email }}</span>
-                                                            </li>                                                            
+                                                            </li>
                                                         </ul>
                                                         <ul class="contact-details">
                                                             @if (userCommerceActive())
-                                                            <li> 
+                                                            <li>
                                                                 <h5>Datos del Comercio</h5>
                                                             </li>
                                                             <li> <i class="fas fa-chart-line text-light-black"></i>
                                                                 <span>Cuenta tipo: <b>Comercio</b></span>
                                                             </li>
                                                             <li> <i class="fas fa-users text-light-black"></i>
-                                                                <span>Cantidad de visitas: <b>{{ $commerce->visit }}</b></span>
+                                                                <span>Cantidad de visitas:
+                                                                    <b>{{ $commerce->visit }}</b></span>
                                                             </li>
                                                             <li> <i class="fas fa-thumbs-up text-light-black"></i>
-                                                                <span>Cantidad de votos: <b>{{ $commerce->votes_positive }}</b></span>
+                                                                <span>Cantidad de votos:
+                                                                    <b>{{ $commerce->votes_positive }}</b></span>
                                                             </li>
                                                             @endif
                                                         </ul>
@@ -73,6 +75,31 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <h5>Enterate primero</h5>
+                                    @foreach ($posts as $post)
+                                    <a href="{{ route('post.blog', $post->slug) }}">
+                                        <div class="restaurent-product-list">
+                                            <div class="restaurent-product-detail">
+                                                <div class="restaurent-product-left">
+                                                    <div class="restaurent-product-title-box">
+                                                        <div class="restaurent-product-box">
+                                                            <div class="restaurent-product-title">
+                                                                <p class="text-light-black">
+                                                                    {{ Str::limit($post->title, 30) }}</p>
+                                                                <p class="text-light-black">{!! Str::limit($post->body,
+                                                                    50) !!}</p>
+                                                            </div>
+                                                            <div class="restaurent-product-img">
+                                                                <img
+                                                                    src="{{ asset('blog/images/360x239-' . $post->photo) }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

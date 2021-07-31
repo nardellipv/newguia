@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page-banner p-relative smoothscroll" id="menu">
-    <img src="{{ asset('styleWeb/assets/img/banner.jpg') }}" class="img-fluid full-width" alt="banner">    
+    <img src="{{ asset('styleWeb/assets/img/banner.jpg') }}" class="img-fluid full-width" alt="banner">
 </div>
 <!-- restaurent top -->
 <!-- restaurent details -->
@@ -13,7 +13,10 @@
                 <div class="heading padding-tb-10">
                     <h3 class="text-light-black title fw-700 no-margin">{{ $commerce->name }}</h3>
                     <p class="text-light-black sub-title no-margin">{{ $commerce->address }} -
-                        {{ $commerce->region->name }} - {{ $commerce->province->name }}
+                        @if($commerce->region)
+                        {{ $commerce->region->name }} -
+                        @endif
+                        {{ $commerce->province->name }}
                     </p>
                 </div>
                 @if (!$commerce->logo)
@@ -292,7 +295,11 @@
                     <li> <i class="fas fa-map-marker-alt"></i>
                         <span>
                             <a href="#" class="text-light-white">
-                                {{ $commerce->address }} - {{ $commerce->region->name }} - {{ $commerce->province->name }}
+                                {{ $commerce->address }} -
+                                @if($commerce->region)
+                                {{ $commerce->region->name }} -
+                                @endif
+                                {{ $commerce->province->name }}
                             </a>
                         </span>
                     </li>
@@ -352,7 +359,7 @@
                                             <textarea class="form-control form-control-submit" name="messageText"
                                                 rows="6" placeholder="Mensaje">{{ old('messageText') }}</textarea>
                                         </div>
-                                         {!! htmlFormSnippet() !!} 
+                                        {!! htmlFormSnippet() !!}
                                         <button type="submit" class="btn-second btn-submit full-width">Enviar
                                             Mensaje</button>
                                     </div>
@@ -413,13 +420,13 @@
                             <iframe id="locmap"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD7eUalpQrZ5TA9BrE5XgsudugZC7TIPYo
                                 &q={{ $commerce->address .','. $commerce->location . $commerce->province->name}}">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="col-md-6 map-pl-0">
     <div class="gallery-box padding-10">
@@ -447,7 +454,7 @@
 </div> --}}
 <!-- map gallery -->
 <!-- restaurent reviews -->
-{{--  <section class="section-padding restaurent-review smoothscroll" id="review">
+<section class="section-padding restaurent-review smoothscroll" id="review">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -462,7 +469,6 @@
                 <div class="review-box">
                     <div class="review-user">
                         <div class="review-user-img">
-
                             <div class="reviewer-name">
                                 <p class="text-light-black fw-600">{{ $comment->name }}</p>
                                 <span class="ml-2 text-light-white">{{ $comment->created_at->diffforhumans() }}</span>
@@ -494,27 +500,45 @@
         <div class="section-2 user-page main-padding">
             <div class="login-sec">
                 <div class="login-box">
-                    <form>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="row">
                             <div class="col-12">
                                 <p class="text-light-black">Necesitas estas logueado para ingresar un comentarios</p>
                                 <div class="form-group">
                                     <label class="text-light-white fs-14">Email</label>
-                                    <input type="email" name="#" class="form-control form-control-submit"
-                                        placeholder="Email" required>
+                                    <input id="email" type="email"
+                                        class="form-control form-control-submit @error('email') is-invalid @enderror"
+                                        name="email" value="{{ old('email') }}" required autocomplete="email"
+                                        placeholder="Email">
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label class="text-light-white fs-14">Password</label>
-                                    <input type="password" id="password-field" name="#"
-                                        class="form-control form-control-submit" value="password" placeholder="Password"
-                                        required>
-                                    <div data-name="#password-field" class="fa fa-fw fa-eye field-icon toggle-password">
-                                    </div>
+                                    <input id="password" type="password"
+                                        class="form-control form-control-submit @error('password') is-invalid @enderror"
+                                        name="password" required autocomplete="current-password"
+                                        placeholder="Contraseña">
+
+                                    <div data-name="#password" class="fa fa-fw fa-eye field-icon toggle-password"></div>
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group checkbox-reset">
                                     <label class="custom-checkbox mb-0">
-                                        <input type="checkbox" name="#"> <span class="checkmark"></span> Mentener
-                                        logueado</label> <a href="#">Resetear Contraseña</a>
+                                        <input type="checkbox" name="#" name="remember" id="remember"
+                                            {{ old('remember') ? 'checked' : '' }}> <span class="checkmark"></span>
+                                        Mantenerme logueado</label>
+                                    <a href="{{ url('password/reset') }}">Olvide mi Contraseña</a>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn-second btn-submit full-width">
@@ -523,7 +547,8 @@
                                 </div>
                                 <div class="form-group text-center"> <span>¿No tienes cuenta?</span>
                                 </div>
-                                <div class="form-group text-center mb-0"> <a href="{{ route('register') }}">Crear una cuenta</a>
+                                <div class="form-group text-center mb-0"> <a href="{{ route('register') }}">Crear una
+                                        cuenta</a>
                                 </div>
                             </div>
                         </div>
@@ -533,9 +558,36 @@
         </div>
     </div>
     @else
-
+    <div class="col-md-12">
+        <div class="section-2 main-padding">
+            <div class="login-sec">
+                <div class="login-box">
+                    <form class="review-form" method="post"
+                        action="{{ route('add.commentCommerce', $commerce->slug) }}">
+                        @csrf
+                        <div class="comment-form">
+                            <form method="post" action="{{ route('MessageClientToCommerce', $commerce) }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control form-control-submit" name="text-message"
+                                                rows="6" placeholder="Mensaje">{{ old('messageText') }}</textarea>
+                                        </div>
+                                        {!! htmlFormSnippet() !!}
+                                        <button type="submit" class="btn-second btn-submit full-width">Enviar
+                                            Mensaje</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     @endif
-</section>  --}}
+</section>
 <!-- restaurent reviews -->
 <!-- offer near -->
 {{-- <section class="fresh-deals section-padding">

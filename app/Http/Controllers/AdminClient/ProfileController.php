@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\AdminClient;
 
+use App\Blog;
 use App\Commerce;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUserRequest;
 use App\Picture;
 use App\User;
+use Carbon\Carbon;
 use Image;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -20,7 +22,11 @@ class ProfileController extends Controller
     {
         $user = userConnect();
 
-        return view('adminSite.index', compact('user'));
+        $posts = Blog::orderBy('created_at', 'DESC')
+            ->take(3)
+            ->get();
+
+        return view('adminSite.index', compact('user', 'posts'));
     }
 
     public function updateData()
