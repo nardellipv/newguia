@@ -42,8 +42,8 @@
 
     {{--tostr--}}
     <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <script async src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script async src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
     <!--Demo [ DEMONSTRATION ]-->
     <link href="{{ asset('styleAdmin/css/demo/jquery-steps.min.css') }}" rel="stylesheet">
@@ -57,7 +57,7 @@
 
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="{{ asset('styleAdmin/plugins/pace/pace.min.css') }}" rel="stylesheet">
-    <script src="{{ asset('styleAdmin/plugins/pace/pace.min.js') }}"></script>
+    <script async src="{{ asset('styleAdmin/plugins/pace/pace.min.js') }}"></script>
     
     @include('sweetalert::alert')
 
@@ -131,52 +131,52 @@
 <!--JAVASCRIPT-->
 <!--=================================================-->
 <!--jQuery [ REQUIRED ]-->
-<script src="{{ asset('styleAdmin/js/jquery-2.1.1.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/js/jquery-2.1.1.min.js') }}"></script>
 
 
 <!--BootstrapJS [ RECOMMENDED ]-->
-<script src="{{ asset('styleAdmin/js/bootstrap.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/js/bootstrap.min.js') }}"></script>
 
 
 <!--Fast Click [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/fast-click/fastclick.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/fast-click/fastclick.min.js') }}"></script>
 
 
 <!--Jasmine Admin [ RECOMMENDED ]-->
-<script src="{{ asset('styleAdmin/js/scripts.js') }}"></script>
+<script async src="{{ asset('styleAdmin/js/scripts.js') }}"></script>
 
 
 <!--Switchery [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/switchery/switchery.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/switchery/switchery.min.js') }}"></script>
 
 <!--Jquery Steps [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/parsley/parsley.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/parsley/parsley.min.js') }}"></script>
 
 <!--Jquery Steps [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/jquery-steps/jquery-steps.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/jquery-steps/jquery-steps.min.js') }}"></script>
 
 <!--Bootstrap Select [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/bootstrap-select/bootstrap-select.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/bootstrap-select/bootstrap-select.min.js') }}"></script>
 
 <!--Bootstrap Wizard [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
 
 <!--Masked Input [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/masked-input/bootstrap-inputmask.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/masked-input/bootstrap-inputmask.min.js') }}"></script>
 
 <!--Bootstrap Validator [ OPTIONAL ]-->
-<script src="{{ asset('styleAdmin/plugins/bootstrap-validator/bootstrapValidator.min.js') }}"></script>
+<script async src="{{ asset('styleAdmin/plugins/bootstrap-validator/bootstrapValidator.min.js') }}"></script>
 
 @yield('script')
 
 <!--Form Wizard [ SAMPLE ]-->
-<script src="{{ asset('styleAdmin/js/demo/wizard.js') }}"></script>
+<script async src="{{ asset('styleAdmin/js/demo/wizard.js') }}"></script>
 
 <!--Demo script [ DEMONSTRATION ]-->
-<script src="{{ asset('styleAdmin/js/demo/jasmine.js') }}"></script>
+<script async src="{{ asset('styleAdmin/js/demo/jasmine.js') }}"></script>
 
 <!--Form Wizard [ SAMPLE ]-->
-<script src="{{ asset('styleAdmin/js/demo/form-wizard.js') }}"></script>
+<script async src="{{ asset('styleAdmin/js/demo/form-wizard.js') }}"></script>
 
 </body>
 </html>

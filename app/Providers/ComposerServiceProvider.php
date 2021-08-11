@@ -26,7 +26,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         //contador de comercios por provincia
-        view::composer(
+        /* view::composer(
             [
                 'web.listingCommerce._aside'
             ],
@@ -38,6 +38,6 @@ class ComposerServiceProvider extends ServiceProvider
                     'province' => $province,
                 ]);
             }
-        );
+        ); */
     }
 }

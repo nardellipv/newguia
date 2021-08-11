@@ -538,7 +538,7 @@
                                         <input type="checkbox" name="#" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}> <span class="checkmark"></span>
                                         Mantenerme logueado</label>
-                                    <a href="{{ url('password/reset') }}">Olvide mi Contraseña</a>
+                                    {{-- <a href="{{ url('password/reset') }}">Olvide mi Contraseña</a> --}}
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn-second btn-submit full-width">

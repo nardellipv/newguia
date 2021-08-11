@@ -62,7 +62,7 @@
                                                             <li> <i class="fas fa-thumbs-up text-light-black"></i>
                                                                 <span>Cantidad de votos:
                                                                     <b>{{ $commerce->votes_positive }}</b></span>
-                                                            </li>
+                                                            </li>                                                                
                                                             @endif
                                                         </ul>
                                                         @if (userConnect()->type == 'CLIENT')

@@ -764,7 +764,7 @@
                                                                                 href="https://www.facebook.com/guiaceliaca"
                                                                                 target="_blank"><img alt="Facebook"
                                                                                     height="32"
-                                                                                    src="images/facebook2x.png"
+                                                                                    src="https://guiaceliaca.com.ar/styleWeb/imagesmail/facebook2x.png"
                                                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block;"
                                                                                     title="Facebook" width="32" /></a>
                                                                         </td>
@@ -773,7 +773,7 @@
                                                                                 href="https://www.instagram.com/guiaceliaca"
                                                                                 target="_blank"><img alt="Instagram"
                                                                                     height="32"
-                                                                                    src="images/instagram2x.png"
+                                                                                    src="https://guiaceliaca.com.ar/styleWeb/imagesmail/instagram2x.png"
                                                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block;"
                                                                                     title="Instagram" width="32" /></a>
                                                                         </td>

@@ -10,11 +10,13 @@ class ListingController extends Controller
 {
     public function index()
     {
-        $commercesListed = Commerce::with(['user', 'province','region'])
+        $commercesListed = Commerce::with(['user', 'province', 'region'])
+            ->where('status', 'ACTIVE')
             ->orderBy('updated_at', 'DESC')
             ->paginate(10);
 
         $listingProvince = Commerce::with(['province'])
+            ->where('status', 'ACTIVE')
             ->groupBy('province_id')
             ->get();
 
@@ -36,12 +38,16 @@ class ListingController extends Controller
 
         $listingProvince = Commerce::with(['province'])
             ->groupBy('province_id')
-            ->get();        
+            ->get();
 
         $countCommerce = Commerce::where('province_id', $filterProvince->id)
-        ->count();
-
-        return view('web.listingCommerce._filterProvince', compact('commercesListed', 
-        'filterProvince', 'listingProvince', 'countCommerce'));
+            ->count();
+            
+        return view('web.listingCommerce._filterProvince', compact(
+            'commercesListed',
+            'filterProvince',
+            'listingProvince',
+            'countCommerce'
+        ));
     }
 }

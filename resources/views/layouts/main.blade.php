@@ -35,10 +35,10 @@
     <!-- place -->
 
     {!! htmlScriptTagJsApi() !!}
-    {{-- @include('external.analytics') --}}
+    @include('external.analytics')
     {{-- @include('external.hotjar')  --}}
-    {{-- @include('external.adsenses')  --}}
-    {{-- @include('external.pixel')  --}}
+    @include('external.adsenses') 
+    @include('external.pixel') 
     {{-- @include('external.onesignal')  --}}
 </head>
 
@@ -60,23 +60,23 @@
     <!-- Place all Scripts Here -->
     
     <!-- jQuery -->
-    <script src="{{ asset('styleWeb/assets/js/jquery.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/jquery.min.js') }}"></script>
     <!-- Popper -->
-    <script src="{{ asset('styleWeb/assets/js/popper.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/popper.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script src="{{ asset('styleWeb/assets/js/bootstrap.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/bootstrap.min.js') }}"></script>
     <!-- Range Slider -->
-    <script src="{{ asset('styleWeb/assets/js/ion.rangeSlider.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/ion.rangeSlider.min.js') }}"></script>
     <!-- Swiper Slider -->
-    <script src="{{ asset('styleWeb/assets/js/swiper.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/swiper.min.js') }}"></script>
     <!-- Nice Select -->
-    <script src="{{ asset('styleWeb/assets/js/jquery.nice-select.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/jquery.nice-select.min.js') }}"></script>
     <!-- magnific popup -->
-    <script src="{{ asset('styleWeb/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/jquery.magnific-popup.min.js') }}"></script>
     <!-- sticky sidebar -->
-    <script src="{{ asset('styleWeb/assets/js/sticksy.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/sticksy.js') }}"></script>
     <!-- Munch Box Js -->
-    <script src="{{ asset('styleWeb/assets/js/munchbox.js') }}"></script>
+    <script async src="{{ asset('styleWeb/assets/js/munchbox.js') }}"></script>
     <!-- /Place all Scripts Here -->
     @yield('script')
 </body>

@@ -87,7 +87,7 @@
             <!-- ListCommerce -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7543412924958320"
                 data-ad-slot="3664575668" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>
+            <script async>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </div>

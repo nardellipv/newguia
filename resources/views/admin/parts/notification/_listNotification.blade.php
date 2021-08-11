@@ -71,9 +71,9 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('styleAdmin/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('styleAdmin/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
-    <script src="{{ asset('styleAdmin/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js') }}">
+    <script async src="{{ asset('styleAdmin/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
+    <script async src="{{ asset('styleAdmin/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
+    <script async src="{{ asset('styleAdmin/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js') }}">
     </script>
-    <script src="{{ asset('styleAdmin/js/demo/tables-datatables.js') }}"></script>
+    <script async src="{{ asset('styleAdmin/js/demo/tables-datatables.js') }}"></script>
 @endsection
