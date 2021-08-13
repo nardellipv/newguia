@@ -107,7 +107,19 @@
                 </div>
             </div>
             <div class="col-lg-3">
-
+                <div class="cart-detail-box">
+                    <div class="card">
+                        <script async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543412924958320"
+                            crossorigin="anonymous"></script>
+                        <!-- ListCommerce -->
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7543412924958320"
+                            data-ad-slot="3664575668" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script async>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
