@@ -60,23 +60,23 @@
     <!-- Place all Scripts Here -->
     
     <!-- jQuery -->
-    <script async src="{{ asset('styleWeb/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/jquery.min.js') }}"></script>
     <!-- Popper -->
-    <script async src="{{ asset('styleWeb/assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/popper.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script async src="{{ asset('styleWeb/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/bootstrap.min.js') }}"></script>
     <!-- Range Slider -->
-    <script async src="{{ asset('styleWeb/assets/js/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/ion.rangeSlider.min.js') }}"></script>
     <!-- Swiper Slider -->
-    <script async src="{{ asset('styleWeb/assets/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/swiper.min.js') }}"></script>
     <!-- Nice Select -->
-    <script async src="{{ asset('styleWeb/assets/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/jquery.nice-select.min.js') }}"></script>
     <!-- magnific popup -->
-    <script async src="{{ asset('styleWeb/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/jquery.magnific-popup.min.js') }}"></script>
     <!-- sticky sidebar -->
-    <script async src="{{ asset('styleWeb/assets/js/sticksy.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/sticksy.js') }}"></script>
     <!-- Munch Box Js -->
-    <script async src="{{ asset('styleWeb/assets/js/munchbox.js') }}"></script>
+    <script src="{{ asset('styleWeb/assets/js/munchbox.js') }}"></script>
     <!-- /Place all Scripts Here -->
     @yield('script')
 </body>

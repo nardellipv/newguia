@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Commerce;
 use App\Product;
+use App\Province;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
+use \Victorybiz\GeoIPLocation\GeoIPLocation;
 
 class HomeController extends Controller
 {
@@ -15,8 +17,10 @@ class HomeController extends Controller
         SEOMeta::setTitle('Comercios celíacos Argentinos ' . date('Y'));
         SEOMeta::setDescription('Locales y vendedores de comida y productos para celíacos en toda Argentina.
         Guía práctica y simple para poder comparar precios y productos, y buscar locales cercanos a sus domicilios');
-        SEOMeta::addKeyword(['celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer', 
-        'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento']);
+        SEOMeta::addKeyword([
+            'celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer',
+            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento'
+        ]);
 
         OpenGraph::setDescription('Locales y vendedores de comida y productos para celíacos en toda Argentina.
         Guía práctica y simple para poder comparar precios y productos, y buscar locales cercanos a sus domicilios');
@@ -49,6 +53,26 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        return view('web.index', compact('ratingVisit', 'ratingVote', 'lastNews', 'products', 'commercesLastRegister'));
+        $localCommerces = new GeoIPLocation();
+        // $localCommerces->setIP('190.173.137.223');
+        $region = $localCommerces->getRegion();
+
+        $regionIp = Province::where('name', $region)
+            ->first();
+
+        if ($regionIp) {
+            $regionCommerces = Commerce::with(['province', 'user'])
+                ->where('province_id', $regionIp->id)
+                ->get();
+        }
+
+        return view('web.index', compact(
+            'ratingVisit',
+            'ratingVote',
+            'lastNews',
+            'products',
+            'commercesLastRegister',
+            'regionCommerces'
+        ));
     }
 }

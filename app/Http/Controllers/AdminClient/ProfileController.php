@@ -7,14 +7,13 @@ use App\Commerce;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUserRequest;
 use App\Picture;
+use App\Province;
 use App\User;
-use Carbon\Carbon;
 use Image;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use OpenWeather;
+use \Victorybiz\GeoIPLocation\GeoIPLocation;
 
 class ProfileController extends Controller
 {
@@ -22,11 +21,25 @@ class ProfileController extends Controller
     {
         $user = userConnect();
 
+        $user->lastLogin = now();
+        $user->save();
+
+
         $posts = Blog::orderBy('created_at', 'DESC')
             ->take(3)
             ->get();
 
-        return view('adminSite.index', compact('user', 'posts'));
+        $localCommerces = new GeoIPLocation();
+        // $localCommerces->setIP('131.221.67.165');
+        $region = $localCommerces->getRegion();
+
+        $regionIp = Province::where('name', $region)
+            ->first();
+
+        $weather = new OpenWeather();
+        $temp = $weather->getCurrentWeatherByCityName($region, 'metric');
+
+        return view('adminSite.index', compact('user', 'posts', 'temp','regionIp'));
     }
 
     public function updateData()

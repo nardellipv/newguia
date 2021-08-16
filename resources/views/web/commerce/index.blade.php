@@ -123,7 +123,7 @@
                                     </h3>
                                 </div>
                             </div>
-                            <div id="collapseOne" class="collapse">
+                            <div id="collapseOne" class="collapse {{ $products != '[]' ? 'show' : '' }}">
                                 <div class="card-body no-padding">
                                     <div class="row">
                                         @forelse($products as $product)

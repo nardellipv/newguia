@@ -47,6 +47,18 @@
                                                                 <span>{{ $user->email }}</span>
                                                             </li>
                                                         </ul>
+
+                                                        @if(!empty($regionIp))
+                                                        <ul class="contact-details">
+                                                            <li>Temperatura en <b>{{ $regionIp->name }}</b></li>
+                                                            <li><img src="{{ $temp['condition']['icon'] }}"></li>
+                                                            <li>
+                                                                <p> Actual: {{ $temp['forecast']['temp'] }}°</p>
+                                                                <p> Mín: {{ $temp['forecast']['temp_min'] }}°</p>
+                                                            </li>
+                                                        </ul>
+                                                        @endif
+
                                                         <ul class="contact-details">
                                                             @if (userCommerceActive())
                                                             <li>

@@ -8,6 +8,7 @@
 @endif
     @include('web.parts._topRating')
     @include('web.parts._banner2')
+    @include('web.parts._localCommerces')
     @include('web.parts._lastNews')
     @include('web.parts._products')
 @endsection
