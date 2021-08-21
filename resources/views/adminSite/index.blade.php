@@ -74,7 +74,7 @@
                                                             <li> <i class="fas fa-thumbs-up text-light-black"></i>
                                                                 <span>Cantidad de votos:
                                                                     <b>{{ $commerce->votes_positive }}</b></span>
-                                                            </li>                                                                
+                                                            </li>
                                                             @endif
                                                         </ul>
                                                         @if (userConnect()->type == 'CLIENT')
@@ -120,17 +120,15 @@
             </div>
             <div class="col-lg-3">
                 <div class="cart-detail-box">
-                    <div class="card">
-                        <script async
-                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543412924958320"
-                            crossorigin="anonymous"></script>
-                        <!-- ListCommerce -->
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7543412924958320"
-                            data-ad-slot="3664575668" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                        <script async>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </div>
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7543412924958320"
+                        crossorigin="anonymous"></script>
+                    <!-- profile -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7543412924958320"
+                        data-ad-slot="8645906197" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
         </div>

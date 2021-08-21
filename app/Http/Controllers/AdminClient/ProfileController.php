@@ -12,8 +12,7 @@ use App\User;
 use Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
-use OpenWeather;
-use \Victorybiz\GeoIPLocation\GeoIPLocation;
+use Stevebauman\Location\Facades\Location;
 
 class ProfileController extends Controller
 {
@@ -29,17 +28,21 @@ class ProfileController extends Controller
             ->take(3)
             ->get();
 
-        $localCommerces = new GeoIPLocation();
-        // $localCommerces->setIP('131.221.67.165');
-        $region = $localCommerces->getRegion();
+        $ip = request()->ip();
 
-        $regionIp = Province::where('name', $region)
+        $region = Location::get('191.82.154.6');
+        //  $region = Location::get($ip);
+        
+        $regionIp = Province::where('name', $region->regionName)
             ->first();
 
-        $weather = new OpenWeather();
-        $temp = $weather->getCurrentWeatherByCityName($region, 'metric');
+        if ($regionIp) {
+            $regionCommerces = Commerce::with(['province', 'user'])
+                ->where('province_id', $regionIp->id)
+                ->get();
+        } 
 
-        return view('adminSite.index', compact('user', 'posts', 'temp','regionIp'));
+        return view('adminSite.index', compact('user', 'posts', 'regionIp'));
     }
 
     public function updateData()

@@ -8,7 +8,7 @@ use App\Product;
 use App\Province;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
-use \Victorybiz\GeoIPLocation\GeoIPLocation;
+use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
 {
@@ -53,18 +53,20 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        $localCommerces = new GeoIPLocation();
-        // $localCommerces->setIP('190.173.137.223');
-        $region = $localCommerces->getRegion();
+        $ip = request()->ip();
 
-        $regionIp = Province::where('name', $region)
+        $region = Location::get('191.82.154.6');
+        // $region = Location::get($ip);
+
+        $regionIp = Province::where('name', $region->regionName)
             ->first();
 
-        if ($regionIp) {
-            $regionCommerces = Commerce::with(['province', 'user'])
-                ->where('province_id', $regionIp->id)
-                ->get();
-        }
+            if ($regionIp) {
+                $regionCommerces = Commerce::with(['province', 'user'])
+                    ->where('province_id', $regionIp->id)
+                    ->get();
+            } 
+
 
         return view('web.index', compact(
             'ratingVisit',
