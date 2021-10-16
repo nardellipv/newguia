@@ -23,7 +23,7 @@ class AdminUserController extends Controller
 
     public function userStore(Request $request)
     {
-//        dd($request->all());
+        //        dd($request->all());
         /*$user = User::create([
              'name' => $request['name'],
              'lastname' => $request['lastname'],
@@ -57,5 +57,21 @@ class AdminUserController extends Controller
             ->first();
 
         return view('admin.parts.user._editUser', compact('user'));
+    }
+
+    public function userUpdate(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->name = $request['name'];
+        $user->lastname = $request['lastname'];
+        $user->email = $request['email'];
+        $user->type = $request['type'];
+        if ($request['password']) {
+            $user->password = bcrypt($request['password']);
+        }
+        $user->save();
+
+        return back();
     }
 }

@@ -19,7 +19,7 @@
     @yield('style')
 
     <!-- Fontawesome -->
-    <link href="{{ asset('styleWeb/assets/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('styleWeb/assets/css/font-awesome-min.css') }}" rel="stylesheet">
     <!-- Flaticons -->
     <link href="{{ asset('styleWeb/assets/css/font/flaticon.css') }}" rel="stylesheet">
     <!-- Swiper Slider -->
@@ -27,7 +27,7 @@
     <!-- Range Slider -->
     <link href="{{ asset('styleWeb/assets/css/ion.rangeSlider.min.css') }}" rel="stylesheet">
     <!-- Custom Stylesheet -->
-    <link href="{{ asset('styleWeb/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('styleWeb/assets/css/style-min.css') }}" rel="stylesheet">
     <!-- Custom Responsive -->
     <link href="{{ asset('styleWeb/assets/css/responsive.css') }}" rel="stylesheet">
     <!-- Google Fonts -->

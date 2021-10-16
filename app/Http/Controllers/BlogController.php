@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -17,7 +17,10 @@ class BlogController extends Controller
         SEOMeta::setDescription('👉 Enterate de lo último en temas de celiaquia. Publicamos contenido semanalmente estes actualizados constantemente.');
         SEOMeta::addKeyword([
             'celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer',
-            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento'
+            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento', 'celíaco definición', 'celiacos lugares para comer',
+            'lugares para celiacos palermo', 'lugares para merendar celiacos', 'lugares para merendar apto celiacos', 'celiacos mar del plata',
+            'restaurant para celiacos', 'restaurantes para celiacos en caba', 'restaurantes para celiacos buenos aires',
+            'restaurantes para celiacos cerca de mi'
         ]);
 
         OpenGraph::setDescription('👉 Enterate de lo último en temas de celiaquia. Publicamos contenido semanalmente estes actualizados constantemente.');
@@ -39,11 +42,14 @@ class BlogController extends Controller
         $post = Blog::where('slug', $slug)
             ->first();
 
-        SEOMeta::setTitle('Noticia sobre ' . $post->title);
-        SEOMeta::setDescription('👉 Enterate de lo último en temas de celiaquia. Publicamos contenido semanalmente estes actualizados constantemente.');
+        SEOMeta::setTitle($post->title);
+        SEOMeta::setDescription('👉 ' . Str::limit(substr($post->body, '3'), 160, '...'));
         SEOMeta::addKeyword([
             'celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer',
-            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento'
+            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento', 'celíaco definición', 'celiacos lugares para comer',
+            'lugares para celiacos palermo', 'lugares para merendar celiacos', 'lugares para merendar apto celiacos', 'celiacos mar del plata',
+            'restaurant para celiacos', 'restaurantes para celiacos en caba', 'restaurantes para celiacos buenos aires',
+            'restaurantes para celiacos cerca de mi'
         ]);
 
         OpenGraph::setDescription($post->title);

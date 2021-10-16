@@ -30,12 +30,6 @@
                     <td>{{ $user->created_at->format('d/m/Y') }}</td>
                     <td>
                         <a href="{{ route('admin.userEdit', $user) }}" class="btn btn-default btn-icon btn-circle icon-lg fa fa-user"></a>
-                        @if($user->status == 'DESACTIVE')
-                            <button class="btn btn-mint btn-icon btn-circle icon-lg fa fa-thumbs-up"></button>
-                        @else
-                            <button class="btn btn-danger btn-icon btn-circle icon-lg fa fa-times"></button>
-                        @endif
-                        <button class="btn btn-pink btn-icon btn-circle icon-lg fa fa-envelope"></button>
                     </td>
                 </tr>
             @endforeach

@@ -12,7 +12,7 @@
                             </a>
                         </div>
                         <div class="testimonial-caption padding-15">
-                            <h5 class="fw-600"><a href="restaurant.html" class="text-light-black">{{ Str::limit($lastNew->title, 35) }}</a></h5>
+                            <h5 class="fw-600"><a href="" class="text-light-black">{{ Str::limit($lastNew->title, 35) }}</a></h5>
                             <p class="text-light-black">{!! Str::limit($lastNew->body, 100) !!}</p>
                             <a href="{{ route('post.blog', $lastNew->slug) }}" class="btn-second btn-submit">Leer Nota Completa</a>
                         </div>

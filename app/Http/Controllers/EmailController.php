@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Mail;
 class EmailController extends Controller
 {
     public function MessageClientToCommerce(MessageClienteToCommerceRequest $request, $id)
-    {
+    {        
         Message::create([
             'name' => $request['name'],
             'email' => $request['email'],

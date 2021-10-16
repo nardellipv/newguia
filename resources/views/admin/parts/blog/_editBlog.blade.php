@@ -30,9 +30,9 @@
 
 @section('script')
     {{--<script async src="{{ asset('styleAdmin/plugins/dropzone/dropzone.min.js') }}"></script>--}}
-    <script async src="{{ asset('styleAdmin/plugins/ion-rangeslider/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('styleAdmin/plugins/ion-rangeslider/ion.rangeSlider.min.js') }}"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
     <script>
         $(document).ready(function () {
             $('#summernote').summernote({

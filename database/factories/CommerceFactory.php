@@ -23,7 +23,7 @@ $factory->define(Commerce::class, function (Faker $faker) {
         'type' => $faker->randomElement($array = array('FREE','BASIC','CLASIC','PREMIUM')),
         'slug' => $title,
         'status' => $faker->randomElement($array = array('ACTIVE', 'DESACTIVE')),
-        'user_id' => rand(1, 10),
+        'user_id' => rand(1, 5),
         'province_id' => 2,
         'region_id' => 6,
     ];

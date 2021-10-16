@@ -19,7 +19,6 @@ class AdminNewsLetterController extends Controller
         $newsLetter = NewsLetter::find($id);
         $newsLetter->delete();
 
-        toast('NewsLetter Eliminado Correctamente', 'success');
         return back();
     }
 }

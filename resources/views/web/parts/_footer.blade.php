@@ -1,7 +1,7 @@
 <footer class="section-padding bg-light-theme pt-0 u-line bg-black">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+            <div class="col-xl col-lg-3 col-md-3 col-sm-6">
                 <div class="footer-links">
                     <h6 class="text-custom-white">Links utiles</h6>
                     <ul>
@@ -18,7 +18,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+            <div class="col-xl col-lg-3 col-md-3 col-sm-6">
                 <div class="footer-links">
                     <h6 class="text-custom-white">Mantenete en contacto</h6>
                     <ul>
@@ -27,8 +27,16 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="col-xl col-lg-4 col-md-4 col-sm-6">
+            <div class="col-xl col-lg-3 col-md-3 col-sm-6">
+                <div class="footer-links">
+                    <h6 class="text-custom-white">Partner</h6>
+                    <ul>
+                        <li class="text-light-white fw-600"><a href="https://mikant.com.ar" target="_blank">MikAnt</a></li>
+                        <li class="text-light-white fw-600"><a href="https://avisosmendoza.com.ar" target="_blank">Avisos Mendoza</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl col-lg-3 col-md-3 col-sm-6">
                 <div class="footer-contact">
                     <h6 class="text-custom-white">Newsletter</h6>
                     <form class="subscribe_form" method="post" action="{{ route('newsletter.add') }}">

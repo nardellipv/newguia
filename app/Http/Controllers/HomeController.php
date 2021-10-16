@@ -19,7 +19,10 @@ class HomeController extends Controller
         Guía práctica y simple para poder comparar precios y productos, y buscar locales cercanos a sus domicilios');
         SEOMeta::addKeyword([
             'celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer',
-            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento'
+            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento', 'celíaco definición', 'celiacos lugares para comer',
+            'lugares para celiacos palermo', 'lugares para merendar celiacos', 'lugares para merendar apto celiacos', 'celiacos mar del plata',
+            'restaurant para celiacos', 'restaurantes para celiacos en caba', 'restaurantes para celiacos buenos aires',
+            'restaurantes para celiacos cerca de mi'
         ]);
 
         OpenGraph::setDescription('Locales y vendedores de comida y productos para celíacos en toda Argentina.
@@ -61,11 +64,11 @@ class HomeController extends Controller
         $regionIp = Province::where('name', $region->regionName)
             ->first();
 
-            if ($regionIp) {
-                $regionCommerces = Commerce::with(['province', 'user'])
-                    ->where('province_id', $regionIp->id)
-                    ->get();
-            } 
+        if ($regionIp) {
+            $regionCommerces = Commerce::with(['province', 'user'])
+                ->where('province_id', $regionIp->id)
+                ->get();
+        }
 
 
         return view('web.index', compact(

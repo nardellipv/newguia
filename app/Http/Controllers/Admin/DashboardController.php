@@ -14,12 +14,31 @@ class DashboardController extends Controller
     {
         $users = User::all();
 
+        $messages = Message::with(['commerce'])
+            ->orderBy('created_At', 'DESC')
+            ->get();
+
         //cantidad
         $countUsers = User::count();
         $countCommerces = Commerce::count();
         $countMessage = Message::count();
         $countPost = Blog::count();
 
-        return view('admin.dashboard', compact('users', 'countCommerces','countMessage','countPost','countUsers'));
+        return view('admin.dashboard', compact(
+            'users',
+            'countCommerces',
+            'countMessage',
+            'countPost',
+            'countUsers',
+            'messages'
+        ));
+    }
+
+    public function deleteMessage($id)
+    {
+        $message = Message::find($id);
+        $message->delete();
+
+        return back();
     }
 }

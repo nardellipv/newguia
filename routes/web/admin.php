@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth','UserType'])->group(function () {
     Route::get('/admin', 'Admin\DashboardController@index')->name('admin.dashboard');
 
+    Route::get('/admin/delete/message/{id}', 'Admin\DashboardController@deleteMessage')->name('admin.deleteMessage');
+
     Route::get('/admin/blog/list', 'Admin\AdminBlogController@listBlogAdmin')->name('admin.listBlog');
     Route::get('/admin/blog/create', 'Admin\AdminBlogController@createBlog')->name('admin.createBlog');
     Route::post('/admin/blog/store', 'Admin\AdminBlogController@storeBlog')->name('admin.storeBlog');
@@ -17,6 +19,7 @@ Route::middleware(['auth','UserType'])->group(function () {
     Route::get('/admin/user/create', 'Admin\AdminUserController@userCreate')->name('admin.userCreate');
     Route::post('/admin/user/create', 'Admin\AdminUserController@userStore')->name('admin.userStore');
     Route::get('/admin/user/edit/{id}', 'Admin\AdminUserController@userEdit')->name('admin.userEdit');
+    Route::post('/admin/user/update/{id}', 'Admin\AdminUserController@userUpdate')->name('admin.userUpdate');
 
     Route::get('/admin/newsletter', 'Admin\AdminNewsLetterController@listNewsLetter')->name('admin.listNewsLetter');
     Route::get('/admin/newsletter/delete/{id}', 'Admin\AdminNewsLetterController@deleteNewsLetter')->name('admin.deleteNewsLetter');

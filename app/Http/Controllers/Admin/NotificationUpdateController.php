@@ -23,7 +23,6 @@ class NotificationUpdateController extends Controller
             'status' => 'ACTIVE',
         ]);
 
-        toast('Notification Creada', 'success');
         return back();
     }
 
@@ -33,7 +32,6 @@ class NotificationUpdateController extends Controller
         $notification->status = 'ACTIVE';
         $notification->save();
 
-        toast('Notification Activa', 'success');
         return back();
     }
     
@@ -43,7 +41,6 @@ class NotificationUpdateController extends Controller
         $notification->status = 'INACTIVE';
         $notification->save();
 
-        toast('Notification Inactiva', 'success');
         return back();
     }
     
@@ -52,7 +49,6 @@ class NotificationUpdateController extends Controller
         $notification = Notification::find($id);
         $notification->delete();
 
-        toast('Notification Borrada', 'success');
         return back();
     }
 }

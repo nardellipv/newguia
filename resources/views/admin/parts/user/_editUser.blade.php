@@ -6,25 +6,25 @@
             <div class="col-lg-9 col-lg-offset-2">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Agregar nuevo usuario</h3>
+                        <h3 class="panel-title">Editar Usuario</h3>
                     </div>
-                    <form method="post" action="{{ route('admin.userStore') }}" class="panel-body form-horizontal" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('admin.userUpdate', $user) }}" class="panel-body form-horizontal" >
                         @csrf
-                       {{-- <div class="form-group">
+                       <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" id="demo-text-input" class="form-control" placeholder="Nombre"
+                                <input type="text" id="demo-text-input" class="form-control" placeholder="Nombre" value="{{ $user->name }}"
                                        name="name">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" id="demo-text-input" class="form-control" placeholder="Apellido"
+                                <input type="text" id="demo-text-input" class="form-control" placeholder="Apellido" value="{{ $user->lastname }}"
                                        name="lastname">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" id="demo-text-input" class="form-control" placeholder="Email"
+                                <input type="text" id="demo-text-input" class="form-control" placeholder="Email" value="{{ $user->email }}"
                                        name="email">
                             </div>
                         </div>
@@ -33,13 +33,13 @@
                             <div class="col-md-9">
                                 <div class="radio">
                                     <label class="form-radio form-icon btn btn-default form-text">
-                                        <input type="radio" name="type" value="CLIENT" checked> Client
+                                        <input type="radio" name="type" value="CLIENT" {{ $user->type == 'CLIENT' ? 'checked' : '' }}> Client
                                     </label>
                                     <label class="form-radio form-icon btn btn-default form-text">
-                                        <input type="radio" name="type" value="OWNER"> Owner
+                                        <input type="radio" name="type" value="OWNER" {{ $user->type == 'OWNER' ? 'checked' : '' }}> Owner
                                     </label>
                                     <label class="form-radio form-icon btn btn-default form-text">
-                                        <input type="radio" name="type" value="ADMIN"> Admin
+                                        <input type="radio" name="type" value="ADMIN" {{ $user->type == 'ADMIN' ? 'checked' : '' }}> Admin
                                     </label>
                                 </div>
                             </div>
@@ -49,13 +49,13 @@
                                 <input type="text" id="demo-text-input" class="form-control" placeholder="Password"
                                        name="password">
                             </div>
-                        </div>--}}
-                        <div class="panel-heading">
+                        </div>
+                        {{-- <div class="panel-heading">
                             <h3 class="panel-title">Datos Comercio</h3>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" id="demo-text-input" class="form-control" placeholder="Nombre"
+                                <input type="text" id="demo-text-input" class="form-control" placeholder="Nombre" 
                                        name="name">
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                                 <input type="text" id="demo-text-input" class="form-control" placeholder="Visitas"
                                        name="visit">
                             </div>
-                        </div>
+                        </div> --}}
                        {{-- <div class="form-group">
                             <label class="control-label col-md-4">Relación Usuario </label>
                             <div class="col-md-6">
@@ -112,11 +112,11 @@
                                 </select>
                             </div>
                         </div>--}}
-                        <div class="fallback">
+                        {{-- <div class="fallback">
                             <input name="photo" type="file" />
-                        </div>
+                        </div> --}}
                         <button type="submit" class="btn btn-block btn-warning">
-                            Agregar usuario
+                            Modificar usuario
                         </button>
                     </form>
                 </div>

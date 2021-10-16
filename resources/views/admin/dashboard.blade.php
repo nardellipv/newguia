@@ -7,4 +7,5 @@
     @include('admin.parts._export')
     @include('admin.parts._sendJobsMail')
     @include('admin.parts._users')
+    @include('admin.parts._messages')
 @endsection

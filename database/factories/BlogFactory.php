@@ -15,6 +15,6 @@ $factory->define(Blog::class, function (Faker $faker) {
         'view' => rand(1,100),
         'like' => rand(1,100),
         'slug' => $title,
-        'user_id' => rand(1, 10),
+        'user_id' => rand(1, 5),
     ];
 });

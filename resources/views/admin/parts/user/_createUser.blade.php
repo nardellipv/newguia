@@ -6,7 +6,7 @@
             <div class="col-lg-9 col-lg-offset-2">
                 <div class="panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Agregar nuevo usuario</h3>
+                        <h3 class="panel-title">Agregar nuevo comercio</h3>
                     </div>
                     <form method="post" action="{{ route('admin.userStore') }}" class="panel-body form-horizontal" enctype="multipart/form-data">
                         @csrf

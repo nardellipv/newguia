@@ -78,7 +78,7 @@ class JobSiteController extends Controller
     {
         $commerce = Commerce::orderBy('visit', 'DESC')
             ->first();
-
+            
         Mail::send('emails.MailTopVisitCommerces', ['commerce' => $commerce], function ($msj) use ($commerce) {
             $msj->from('no-responder@guiaceliaca.com.ar', 'GuiaCeliaca');
             $msj->subject('Top Comercios');

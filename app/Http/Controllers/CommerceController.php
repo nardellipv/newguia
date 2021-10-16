@@ -25,7 +25,10 @@ class CommerceController extends Controller
         SEOMeta::setDescription('💪 Local de comida sin TACC ' . $commerce->name . ' ingresa y conoce más sobre este local');
         SEOMeta::addKeyword([
             $commerce->name, 'celíacos', 'locales', 'celíacos argentinos', 'TACC', 'celiaco sintomas', 'celiaco que no puede comer',
-            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento'
+            'celiaco sintomas', 'celiaco dieta', 'celiaco tratamiento', 'celíaco definición', 'celiacos lugares para comer',
+            'lugares para celiacos palermo', 'lugares para merendar celiacos', 'lugares para merendar apto celiacos', 'celiacos mar del plata',
+            'restaurant para celiacos', 'restaurantes para celiacos en caba', 'restaurantes para celiacos buenos aires',
+            'restaurantes para celiacos cerca de mi'
         ]);
 
         OpenGraph::setDescription($commerce->about);

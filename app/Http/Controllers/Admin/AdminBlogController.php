@@ -51,7 +51,6 @@ class AdminBlogController extends Controller
 
         $blog->save();
 
-        toast('Post creado correctamente', 'success');
         return back();
     }
 
@@ -88,7 +87,6 @@ class AdminBlogController extends Controller
 
         $blog->save();
 
-        toast('Post editado correctamente', 'success');
         return back();
     }
 
@@ -98,7 +96,6 @@ class AdminBlogController extends Controller
         $post->status = 'ACTIVE';
         $post->save();
 
-        toast('Post activado correctamente', 'success');
         return back();
     }
 
@@ -108,7 +105,6 @@ class AdminBlogController extends Controller
         $post->status = 'DESACTIVE';
         $post->save();
 
-        toast('Post desactivado correctamente', 'success');
         return back();
     }
 }

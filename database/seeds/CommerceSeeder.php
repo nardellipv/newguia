@@ -11,6 +11,6 @@ class CommerceSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Commerce::class, 20)->create();
+        factory(\App\Commerce::class, 5)->create();
     }
 }

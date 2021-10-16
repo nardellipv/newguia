@@ -40,10 +40,7 @@
 
     @yield('style')
 
-    {{--tostr--}}
-    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <link href="{{ asset('styleAdmin/plugins/fooTable/css/footable.core.css') }}" rel="stylesheet">
 
     <!--Demo [ DEMONSTRATION ]-->
     <link href="{{ asset('styleAdmin/css/demo/jquery-steps.min.css') }}" rel="stylesheet">
@@ -58,8 +55,6 @@
     <!--Page Load Progress Bar [ OPTIONAL ]-->
     <link href="{{ asset('styleAdmin/plugins/pace/pace.min.css') }}" rel="stylesheet">
     <script src="{{ asset('styleAdmin/plugins/pace/pace.min.js') }}"></script>
-    
-    @include('sweetalert::alert')
 
 </head>
 
@@ -168,6 +163,9 @@
 <script src="{{ asset('styleAdmin/plugins/bootstrap-validator/bootstrapValidator.min.js') }}"></script>
 
 @yield('script')
+
+<script src="{{ asset('styleAdmin/plugins/fooTable/dist/footable.all.min.js') }}"></script>
+    <script src="{{ asset('styleAdmin/js/demo/tables-footable.js') }}"></script>
 
 <!--Form Wizard [ SAMPLE ]-->
 <script src="{{ asset('styleAdmin/js/demo/wizard.js') }}"></script>

@@ -12,7 +12,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6" style="margin-bottom: 2%;">
                 <div class="product-box mb-md-20">
                     <div class="product-img">
-                        <a href="restaurant.html">
+                        <a href="">
                             @if (!$regionCommerce->logo)
                             <img alt="{{ $regionCommerce->name }}" class="img-fluid full-width"
                                 src="{{asset('styleWeb/assets/images/img-logo-grande.png')}}" style="width: 70%;margin-left: 10%;">
@@ -23,7 +23,7 @@
                         </a>
                     </div>
                     <div class="product-caption">
-                        <h6 class="product-title"><a href="restaurant.html" class="text-light-black ">
+                        <h6 class="product-title"><a href="" class="text-light-black ">
                                 {{ $regionCommerce->name }}</a></h6>
                         <p class="text-light-white">
                             @if($regionCommerce->region)
