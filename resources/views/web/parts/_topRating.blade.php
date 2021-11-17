@@ -83,7 +83,7 @@
 								<div class="product-details">
 									<div class="rating">
 										<span class="text-light-white text-right">
-											<img alt="tag" src="{{ asset('styleWeb/assets/img/svg/013-heart-1.svg') }}">
+											<img alt="tag" src="{{ asset('styleWeb/assets/images/svg/013-heart-1.svg') }}">
 											{{ $lastCommerce->votes_positive }}</span>
 									</div>
 								</div>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="page-banner p-relative smoothscroll" id="menu">
-    <img src="{{ asset('styleWeb/assets/img/banner.jpg') }}" class="img-fluid full-width" alt="banner">
+    <img src="{{ asset('styleWeb/assets/images/banner.jpg') }}" class="img-fluid full-width" alt="banner">
 </div>
 <!-- restaurent top -->
 <!-- restaurent details -->
@@ -95,7 +95,7 @@
                         @include('alerts.error')
 
                         <div class="promocodeimg mb-xl-20 p-relative">
-                            <img src="{{ asset('styleWeb/assets/img/banner.jpg') }}" class="img-fluid full-width"
+                            <img src="{{ asset('styleWeb/assets/images/banner.jpg') }}" class="img-fluid full-width"
                                 alt="promocode">
                             <div class="promocode-text">
                                 <div class="promocode-text-content">
@@ -484,7 +484,7 @@
             </div>
             <div class="col-12">
                 <div class="review-img">
-                    <img src="{{ asset('styleWeb/assets/img/review-footer.png') }}" class="img-fluid" alt="#">
+                    <img src="{{ asset('styleWeb/assets/images/review-footer.png') }}" class="img-fluid" alt="#">
                     <div class="review-text">
                         <h2 class="text-light-white mb-2 fw-600">Este local todavía no tiene comentarios</h2>
                         <p class="text-light-white">Se el primero en dejar tu comentario para este Comercio.</p>

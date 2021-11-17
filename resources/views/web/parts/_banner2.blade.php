@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-5">
                 <div class="deals-image">
-                    <img src="{{ asset('styleWeb/assets/img/about/blog/1110x350/hbanner-2.jpg') }}" class="img-fluid full-width" alt="#">
+                    <img src="{{ asset('styleWeb/assets/images/hbanner-2.jpg') }}" class="img-fluid full-width" alt="#">
                 </div>
             </div>
         </div>

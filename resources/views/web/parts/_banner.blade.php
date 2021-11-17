@@ -1,5 +1,5 @@
 <section class="banner-1 banner-2 p-relative ">
-    <img src="{{ asset('styleWeb/assets/img/banner/banner-4.jpg') }}" class="img-fluid full-width" alt="Banner">
+    <img src="{{ asset('styleWeb/assets/images/banner-4.jpg') }}" class="img-fluid full-width" alt="Banner">
     <div class="transform-center">
         <div class="container">
             <div class="row">
