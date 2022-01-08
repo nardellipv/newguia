@@ -69,7 +69,6 @@ class JobController extends Controller
         $sitemap = App::make("sitemap");
 
         $sitemap->add(URL::to('/'), \Carbon\Carbon::now(), '1.0', 'daily');
-        $sitemap->add(URL::to('https://guiaceliaca.com.ar/social'), \Carbon\Carbon::now(), '0.50', 'daily');
 
         $posts = Blog::orderBy('created_at', 'desc')->get();
         $commerces = Commerce::orderBy('created_at', 'desc')->get();

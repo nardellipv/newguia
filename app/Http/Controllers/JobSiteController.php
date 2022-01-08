@@ -15,7 +15,8 @@ class JobSiteController extends Controller
 {
     public function sendNewsLetters()
     {
-        $emails = NewsLetter::all();
+        // $emails = NewsLetter::all();
+        $emails = User::all();
         $sendPost = Blog::where('send', 0)
             ->orderBy('created_at', 'ASC')
             ->take(2)

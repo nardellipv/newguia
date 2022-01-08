@@ -68,7 +68,7 @@
             <div class="col-md-12">
                 <div class="address-details">
                     <div class="address">
-                        <div class="delivery-address"> <a href="order-details.html"
+                        <div class="delivery-address"> <a href="#"
                                 class="text-light-black">{{ $commerce->votes_positive }}<span class="fs-14">
                                     Votos Positivos</a>
                         </div>
