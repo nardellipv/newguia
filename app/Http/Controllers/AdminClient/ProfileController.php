@@ -13,6 +13,7 @@ use Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Cache;
 
 class ProfileController extends Controller
 {
@@ -30,17 +31,24 @@ class ProfileController extends Controller
 
         $ip = request()->ip();
 
-        $region = Location::get('191.82.154.6');
-        //  $region = Location::get($ip);
-        
+        $region = Location::get('168.227.145.35');
+        // $region = Location::get($ip);
+
         $regionIp = Province::where('name', $region->regionName)
             ->first();
 
-        if ($regionIp) {
-            $regionCommerces = Commerce::with(['province', 'user'])
-                ->where('province_id', $regionIp->id)
-                ->get();
-        } 
+        if (Cache::has('regionIpCache')) {
+
+            $regionCommerces = Cache::get('regionIpCache');
+        } else {
+
+            if ($regionIp) {
+                $regionCommerces = Commerce::with(['province', 'user'])
+                    ->where('province_id', $regionIp->id)
+                    ->get();
+            }
+            Cache::put('regionIpCache', $regionCommerces, 600);
+        }
 
         return view('adminSite.index', compact('user', 'posts', 'regionIp'));
     }

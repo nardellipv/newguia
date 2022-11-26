@@ -9,6 +9,7 @@ use App\Province;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -32,23 +33,45 @@ class HomeController extends Controller
         OpenGraph::addImage(['url' => 'https://guiaceliaca.com.ar/styleWeb/assets/images/logo.png', 'size' => 300]);
         OpenGraph::addProperty('type', 'articles');
 
-        $ratingVote = Commerce::orderBy('votes_positive', 'desc')
-            ->where('status', 'ACTIVE')
-            ->first();
 
-        $ratingVisit = Commerce::orderBy('visit', 'DESC')
-            ->where('status', 'ACTIVE')
-            ->first();
+        if (Cache::has('ratingPositiveCache')) {
+
+            $ratingVote = Cache::get('ratingPositiveCache');
+        } else {
+
+            $ratingVote = Commerce::orderBy('votes_positive', 'desc')
+                ->where('status', 'ACTIVE')
+                ->first();
+            Cache::put('ratingPositiveCache', $ratingVote, 600);
+        }
+
+        if (Cache::has('ratingVisitCache')) {
+
+            $ratingVisit = Cache::get('ratingVisitCache');
+        } else {
+
+            $ratingVisit = Commerce::orderBy('visit', 'DESC')
+                ->where('status', 'ACTIVE')
+                ->first();
+            Cache::put('ratingVisitCache', $ratingVisit, 600);
+        }
 
         $lastNews = Blog::orderBy('created_at', 'DESC')
             ->where('status', 'ACTIVE')
             ->take(5)
             ->get();
 
-        $products = Product::with(['commerce', 'commerce.user'])
-            ->where('photo', '!=', 'NULL')
-            ->inRandomOrder()
-            ->get();
+        if (Cache::has('productCache')) {
+
+            $products = Cache::get('productCache');
+        } else {
+
+            $products = Product::with(['commerce', 'commerce.user'])
+                ->where('photo', '!=', 'NULL')
+                ->inRandomOrder()
+                ->get();
+            Cache::put('productCache', $products, 600);
+        }
 
         $commercesLastRegister = Commerce::with(['user', 'province', 'region'])
             ->where('status', 'ACTIVE')
@@ -58,16 +81,23 @@ class HomeController extends Controller
 
         $ip = request()->ip();
 
-        $region = Location::get('191.82.154.6');
+        $region = Location::get('168.227.145.35');
         // $region = Location::get($ip);
 
         $regionIp = Province::where('name', $region->regionName)
             ->first();
 
-        if ($regionIp) {
-            $regionCommerces = Commerce::with(['province', 'user'])
-                ->where('province_id', $regionIp->id)
-                ->get();
+        if (Cache::has('regionIpCache')) {
+
+            $regionCommerces = Cache::get('regionIpCache');
+        } else {
+
+            if ($regionIp) {
+                $regionCommerces = Commerce::with(['province', 'user'])
+                    ->where('province_id', $regionIp->id)
+                    ->get();
+            }
+            Cache::put('regionIpCache', $regionCommerces, 600);
         }
 
 

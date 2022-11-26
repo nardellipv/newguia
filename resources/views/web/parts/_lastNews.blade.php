@@ -21,7 +21,7 @@
                                 <div class="post-content padding-20">
                                     <h5><a href="{{ route('post.blog', $lastNew->slug) }}"
                                             class="text-light-black">{{ Str::limit($lastNew->title, 35) }}</a></h5>
-                                    <p>{!! Str::limit($lastNew->body, 100) !!}</p>
+                                    {{--  <p>{!! Str::limit($lastNew->body, 100) !!}</p>  --}}
                                     <div class="blog-link-wrap"> <a href="{{ route('post.blog', $lastNew->slug) }}"
                                             class="btn-first white-btn">Leer Más</a>
                                     </div>
